@@ -22,6 +22,5 @@ if(global.start && !selected) {
 if(selected)
 	timeout += delta_time / 1000000;
 	
-if(timeout > 1) {
+if(timeout > 2)
 	room_goto(Room1);
-}

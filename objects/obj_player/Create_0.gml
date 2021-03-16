@@ -10,3 +10,9 @@ currentY = 0;
 
 xMax = 1.6;
 yMax = 8;
+
+hitState = false;
+hitTimeout = 0;
+
+invincibilityState = false;
+invincibilityTimeout = 0;

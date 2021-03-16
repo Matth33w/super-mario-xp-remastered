@@ -1,5 +1,6 @@
 //Horizontal Movement
-currentX = horizontalSpeed * global.horizontal;
+if(!hitState)
+	currentX = horizontalSpeed * global.horizontal;
 
 //Clamp variables
 currentX = clamp(currentX, -xMax, xMax);
@@ -11,10 +12,10 @@ isMoving = !place_meeting(x + global.horizontal, y, obj_ground_group) && global.
 
 //Collisions
 ////Horizontal
-if(!place_meeting(x + currentX, y, obj_ground_group)) {
+if(!place_meeting(x + currentX, y, obj_ground_group) && !hitState) {
 	x += currentX;
 } else {
-	while(!place_meeting(x + sign(currentX), y, obj_ground_group)){
+	while(!place_meeting(x + sign(currentX), y, obj_ground_group) && !hitState){
 		x += sign(currentX);
 	}
 }
@@ -31,7 +32,7 @@ if(!place_meeting(x, y + round(currentY), obj_ground_group)) {
 	currentY = 0;
 }
 
-if(onGround && global.jump && global.vertical >= 0) {
+if(onGround && global.jump && global.vertical >= 0 && !hitState) {
 	currentY = -5;
 	audio_play_sound(snd_mario_jump, 1, false);
 }
@@ -57,4 +58,22 @@ if(camera_get_view_x(view_camera[0]) > room_width - camera_get_view_width(view_c
 	camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]));
 }
 
-depth = 300
+depth = 300;
+
+//Hit and invincibility timers
+if(hitState)
+	hitTimeout += delta_time / 1000000;
+
+if(invincibilityState)
+	invincibilityTimeout += delta_time / 1000000;
+
+if(hitState && hitTimeout > 1) {
+	hitState = false;
+	hitTimeout = 0;
+	invincibilityState = true;
+}
+
+if(invincibilityState && invincibilityTimeout > 2) {
+	invincibilityState = false;
+	invincibilityTimeout = 0;
+}

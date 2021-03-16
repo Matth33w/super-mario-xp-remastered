@@ -20,6 +20,20 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 			break;
 		}
 		
+		case "mushroom": {
+			var mushroom = instance_create_layer(x, y + (sprite_height / 2), "Objects", obj_mushroom);
+			mushroom.mushroomType = "normal";
+			audio_play_sound(snd_item_appear, 1, false);
+			break;
+		}
+		
+		case "poison_mushroom": {
+			var mushroom = instance_create_layer(x, y + (sprite_height / 2), "Objects", obj_mushroom);
+			mushroom.mushroomType = "poisoned";
+			audio_play_sound(snd_item_appear, 1, false);
+			break;
+		}
+		
 		default: {
 			break;	
 		}
@@ -30,4 +44,10 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 
 if(sprite_index == spr_item_block_destroyed && image_index > 7) {
 	image_speed = 0;
+}
+
+if(!box_visible && !hit) {
+	image_alpha = 0;
+} else {
+	image_alpha = 1;
 }
