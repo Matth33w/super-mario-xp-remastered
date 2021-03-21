@@ -13,8 +13,8 @@
   "soundFile": "snd_mario_item_crash_1.wav",
   "duration": 1.255,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "Mario",
+    "path": "folders/Sounds/SFX/Mario.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_mario_item_crash_1",

@@ -20,11 +20,40 @@ if(place_meeting(x, y, obj_player)) {
 			instance_destroy();
 			break;
 		}
+		
+		case "life": {
+			audio_play_sound(snd_life_up, 1, false);
+			instance_destroy();
+			break;
+		}
 	}
 }
 
 if(!appearing) {
 	x += round(entitySpeed * entityDirection);
+}
+
+if(!appearing && place_meeting(x, y + 1, obj_ground_group)){
+	var brick = instance_place(x, y + 1, obj_brick);
+	var block = instance_place(x, y + 1, obj_item_block);
+	
+	if(brick != noone && brick.destroyed && brick.sprite_index == spr_brick_destroyed && entityCurrentY == 0) {
+		entityCurrentY = -3;
+		
+		if(x < brick.x && entityDirection == 1) {
+			entityDirection = -1;
+		} else if (x > brick.x && entityDirection == -1) {
+			entityDirection = 1;
+		}
+	} else if(block != noone && block.hit && block.sprite_index == spr_item_block_destroyed && entityCurrentY == 0 && block.image_speed != 0) {
+		entityCurrentY = -3;
+		
+		if(x < block.x && entityDirection == 1) {
+			entityDirection = -1;
+		} else if (x > block.x && entityDirection == -1) {
+			entityDirection = 1;
+		}
+	}
 }
 
 switch(mushroomType) {
@@ -35,6 +64,11 @@ switch(mushroomType) {
 	
 	case "poisoned": {
 		sprite_index = spr_poison_mushroom;
+		break;
+	}
+	
+	case "life": {
+		sprite_index = spr_life_mushroom;
 		break;
 	}
 }

@@ -13,8 +13,8 @@
   "soundFile": "snd_mario_jump.mp3",
   "duration": 0.893163,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "Mario",
+    "path": "folders/Sounds/SFX/Mario.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_mario_jump",

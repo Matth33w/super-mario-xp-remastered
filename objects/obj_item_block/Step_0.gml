@@ -34,6 +34,13 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 			break;
 		}
 		
+		case "life_mushroom": {
+			var mushroom = instance_create_layer(x, y + (sprite_height / 2), "Objects", obj_mushroom);
+			mushroom.mushroomType = "life";
+			audio_play_sound(snd_item_appear, 1, false);
+			break;
+		}
+		
 		default: {
 			break;	
 		}
