@@ -1,6 +1,7 @@
 if(!hit && place_meeting(x, y + 1, obj_player)) {
 	hit = true;
 	audio_play_sound(snd_block_hit, 1, false);
+	obj_player.blockHit = true;
 	sprite_index = spr_item_block_destroyed;
 	
 	switch(item_inside) {

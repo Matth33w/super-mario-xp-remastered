@@ -26,16 +26,16 @@ if(instance_exists(obj_player)) {
 
 	if(obj_player.hitState)
 		sprite_index = spr_mario_damage;
-}
-
-if(obj_player.invincibilityState){
-	spriteFlashingTimeout += delta_time / 1000000;
-	if(spriteFlashingTimeout > spriteFlasingMax) {
-		spriteFlashing = !spriteFlashing;
-		spriteFlashingTimeout = 0;
+		
+	if(obj_player.invincibilityState){
+		spriteFlashingTimeout += delta_time / 1000000;
+		if(spriteFlashingTimeout > spriteFlasingMax) {
+			spriteFlashing = !spriteFlashing;
+			spriteFlashingTimeout = 0;
+		}
+	} else {
+		spriteFlashing = false;
 	}
-} else {
-	spriteFlashing = false;
 }
 
 if(spriteFlashing) {

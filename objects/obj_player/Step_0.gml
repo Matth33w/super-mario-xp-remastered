@@ -20,6 +20,9 @@ if(!place_meeting(x + currentX, y, obj_ground_group) && !hitState) {
 	}
 }
 
+if(onGround)
+	blockHit = false;
+
 currentY += 0.18;
 
 ////Vertical
@@ -76,4 +79,21 @@ if(hitState && hitTimeout > 1) {
 if(invincibilityState && invincibilityTimeout > 2) {
 	invincibilityState = false;
 	invincibilityTimeout = 0;
+}
+
+if(global.pHealth == 0 && !playerDead) {
+	audio_stop_all();
+	playerDead = true;
+	instance_create_layer(x, y, "Objects", obj_player_dead);
+	instance_destroy(obj_player_sprite);
+	instance_destroy();
+	audio_play_sound(snd_mario_dead, 1, false);
+}
+
+if(y > room_height + sprite_height + 20 && !playerDead) {
+	playerDead = true;
+	instance_destroy();
+	audio_stop_all();
+	audio_play_sound(snd_mario_dead, 1, false);
+	global.playerDead = true;
 }

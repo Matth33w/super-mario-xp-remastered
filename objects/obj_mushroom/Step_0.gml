@@ -4,7 +4,7 @@ if(appearing && y > initialY - sprite_height){
 	appearing = false;
 }
 
-if(place_meeting(x, y, obj_player)) {
+if(place_meeting(x, y, obj_player) && !appearing) {
 	switch(mushroomType) {
 		case "normal": {
 			audio_play_sound(snd_mushroom_collect, 1, false);
@@ -36,8 +36,9 @@ if(!appearing) {
 if(!appearing && place_meeting(x, y + 1, obj_ground_group)){
 	var brick = instance_place(x, y + 1, obj_brick);
 	var block = instance_place(x, y + 1, obj_item_block);
+	var mario = instance_place(x, y + 18, obj_player);
 	
-	if(brick != noone && brick.destroyed && brick.sprite_index == spr_brick_destroyed && entityCurrentY == 0) {
+	if(brick != noone && brick.destroyed && brick.sprite_index == spr_brick_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone) {
 		entityCurrentY = -3;
 		
 		if(x < brick.x && entityDirection == 1) {
@@ -45,12 +46,12 @@ if(!appearing && place_meeting(x, y + 1, obj_ground_group)){
 		} else if (x > brick.x && entityDirection == -1) {
 			entityDirection = 1;
 		}
-	} else if(block != noone && block.hit && block.sprite_index == spr_item_block_destroyed && entityCurrentY == 0 && block.image_speed != 0) {
+	} else if(block != noone && block.hit && block.sprite_index == spr_item_block_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone) {
 		entityCurrentY = -3;
 		
-		if(x < block.x && entityDirection == 1) {
+		if(x < obj_player.x && entityDirection == 1) {
 			entityDirection = -1;
-		} else if (x > block.x && entityDirection == -1) {
+		} else if (x > obj_player.x && entityDirection == -1) {
 			entityDirection = 1;
 		}
 	}

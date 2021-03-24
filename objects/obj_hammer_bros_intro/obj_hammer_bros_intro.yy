@@ -23,6 +23,7 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_hammer_bros_intro","path":"objects/obj_hammer_bros_intro/obj_hammer_bros_intro.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_hammer_bros_intro","path":"objects/obj_hammer_bros_intro/obj_hammer_bros_intro.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_mario_intro","path":"objects/obj_mario_intro/obj_mario_intro.yy",},"parent":{"name":"obj_hammer_bros_intro","path":"objects/obj_hammer_bros_intro/obj_hammer_bros_intro.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

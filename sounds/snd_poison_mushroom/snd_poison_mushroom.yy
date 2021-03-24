@@ -13,8 +13,8 @@
   "soundFile": "snd_poison_mushroom.mp3",
   "duration": 1.311122,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "Mario",
+    "path": "folders/Sounds/SFX/Mario.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_poison_mushroom",

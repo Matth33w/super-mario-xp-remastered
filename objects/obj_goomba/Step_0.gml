@@ -5,14 +5,16 @@ onCamera =  (x - sprite_width) < (camera_get_view_x(view_camera[0]) + camera_get
 
 if(entityDirection == -1 && 
    onCamera &&
-   !dead
+   !dead &&
+   !global.playerDead
 ){
 	currentX = -entitySpeed;
 	x += currentX;
 } else if(
    entityDirection == 1 && 
    onCamera &&
-   !dead
+   !dead &&
+   !global.playerDead
 ) {
 	currentX = entitySpeed;
 	x += currentX;
@@ -53,7 +55,7 @@ if(place_meeting(x + currentX, y, obj_ground_group)) {
 	}
 }
 
-if(onCamera) {
+if(onCamera && !global.playerDead) {
 	currentY += 0.3;
 	
 	if(!place_meeting(x, y + currentY, obj_ground_group)) {
@@ -65,4 +67,8 @@ if(onCamera) {
 	
 		currentY = 0;
 	}
+}
+
+if(global.playerDead) {
+	image_speed = 0;
 }

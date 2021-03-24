@@ -14,5 +14,9 @@ yMax = 8;
 hitState = false;
 hitTimeout = 0;
 
+blockHit = false;
+
 invincibilityState = false;
 invincibilityTimeout = 0;
+
+playerDead = false;
