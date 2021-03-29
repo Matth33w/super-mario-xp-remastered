@@ -40,7 +40,7 @@ if(onGround && global.jump && global.vertical >= 0 && !hitState) {
 	audio_play_sound(snd_mario_jump, 1, false);
 }
 
-if(onGround && global.jump && global.vertical < 0) {
+if(onGround && global.jump && global.vertical < 0 && !hitState) {
 	currentY = -5.76;
 	audio_play_sound(snd_mario_jump, 1, false);
 	audio_play_sound(snd_mario_highjump, 1, false);

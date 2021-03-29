@@ -1,0 +1,1 @@
+indicatorTimeout = 0;

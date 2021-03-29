@@ -64,5 +64,9 @@ if(openingTimeout > 15 && cutsceneEvents == 7) {
 
 if(openingTimeout > 18) {
 	audio_stop_all();
-	room_goto(Room1);
+	room_goto(stage_intro);
+}
+
+if(global.start || global.jump) {
+	room_goto(stage_intro);
 }

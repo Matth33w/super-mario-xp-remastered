@@ -1,4 +1,4 @@
-if(appearing && y > initialY - sprite_height){
+if(appearing && y > initialY - sprite_height && !global.playerDead){
 	y -= 0.35;
 } else {
 	appearing = false;
@@ -23,13 +23,15 @@ if(place_meeting(x, y, obj_player) && !appearing) {
 		
 		case "life": {
 			audio_play_sound(snd_life_up, 1, false);
+			global.playerLives++;
+			instance_create_layer(x, y, "Objects", obj_1up_indicator);
 			instance_destroy();
 			break;
 		}
 	}
 }
 
-if(!appearing) {
+if(!appearing && !global.playerDead) {
 	x += round(entitySpeed * entityDirection);
 }
 
@@ -38,7 +40,7 @@ if(!appearing && place_meeting(x, y + 1, obj_ground_group)){
 	var block = instance_place(x, y + 1, obj_item_block);
 	var mario = instance_place(x, y + 18, obj_player);
 	
-	if(brick != noone && brick.destroyed && brick.sprite_index == spr_brick_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone) {
+	if(brick != noone && brick.destroyed && brick.sprite_index == spr_brick_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone && (x < mario.x + 8 && x > mario.x - 8)) {
 		entityCurrentY = -3;
 		
 		if(x < brick.x && entityDirection == 1) {
@@ -46,7 +48,7 @@ if(!appearing && place_meeting(x, y + 1, obj_ground_group)){
 		} else if (x > brick.x && entityDirection == -1) {
 			entityDirection = 1;
 		}
-	} else if(block != noone && block.hit && block.sprite_index == spr_item_block_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone) {
+	} else if(block != noone && block.hit && block.sprite_index == spr_item_block_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone && (x < mario.x + 8 && x > mario.x - 8)) {
 		entityCurrentY = -3;
 		
 		if(x < obj_player.x && entityDirection == 1) {
@@ -76,10 +78,10 @@ switch(mushroomType) {
 
 entityCurrentY += 0.2;
 
-if(!place_meeting(x, y + entityCurrentY, obj_ground_group) && !appearing) {
+if(!place_meeting(x, y + entityCurrentY, obj_ground_group) && !appearing && !global.playerDead) {
 	y += entityCurrentY;
 } else {
-	while(!place_meeting(x, y + sign(entityCurrentY), obj_ground_group)) {
+	while(!place_meeting(x, y + sign(entityCurrentY), obj_ground_group) && !global.playerDead) {
 		y += sign(entityCurrentY);
 	}
 	
@@ -88,4 +90,8 @@ if(!place_meeting(x, y + entityCurrentY, obj_ground_group) && !appearing) {
 
 if(place_meeting(x + (entitySpeed * entityDirection), y, obj_ground_group)) {
 	entityDirection = -entityDirection;
+}
+
+if(y > room_height + 32) {
+	instance_destroy();
 }

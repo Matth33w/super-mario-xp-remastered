@@ -54,7 +54,7 @@ if(sprite_index == spr_item_block_destroyed && image_index > 7) {
 	image_speed = 0;
 }
 
-if(!box_visible && !hit) {
+if(!box_invisible && !hit) {
 	image_alpha = 0;
 } else {
 	image_alpha = 1;

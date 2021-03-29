@@ -1,0 +1,1 @@
+path_start(path_mario_world_map_1, 0.4, path_action_stop, true);

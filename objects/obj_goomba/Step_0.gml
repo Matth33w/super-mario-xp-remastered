@@ -1,7 +1,7 @@
 onCamera =  (x - sprite_width) < (camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])) && 
-			(x + sprite_width) > camera_get_view_x(view_camera[0]) &&
+			(x + sprite_width) > camera_get_view_x(view_camera[0]); /*&&
 			(y - sprite_height) < (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) &&
-			(y + sprite_height > camera_get_view_y(view_camera[0]));
+			(y + sprite_height > camera_get_view_y(view_camera[0]));*/
 
 if(entityDirection == -1 && 
    onCamera &&

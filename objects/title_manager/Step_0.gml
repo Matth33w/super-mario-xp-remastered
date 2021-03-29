@@ -12,7 +12,7 @@ if(currentOption < 1) {
 	currentOption = 1;
 }
 
-if(global.start && !selected) {
+if((global.start || global.jump) && !selected) {
 	selected = true;
 	audio_play_sound(snd_mario_item_crash_1, 1, false);
 	audio_play_sound(snd_impact_generic, 1, false);
