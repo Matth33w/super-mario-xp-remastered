@@ -11,6 +11,6 @@ if(deathTimeout > 3) {
 		room_goto(lives_screen);
 	} else {
 		global.playerLives = 5;
-		show_message("GAME-OVER");
+		room_goto(gameover);
 	}
 }
