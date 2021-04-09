@@ -2,13 +2,13 @@ if(instance_exists(obj_player)) {
 	x = obj_player.x;
 	y = obj_player.y;
 	
-	if(global.horizontal < 0 && !obj_player.hitState) {
+	if(global.horizontal < 0 && !obj_player.hitState && obj_player.canMove) {
 		image_xscale = -1;
-	} else if(global.horizontal > 0 && !obj_player.hitState) {
+	} else if(global.horizontal > 0 && !obj_player.hitState && obj_player.canMove) {
 		image_xscale = 1;
 	}
 
-	if(obj_player.onGround && !obj_player.hitState) {
+	if(obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking) {
 		if(obj_player.isMoving) {
 			sprite_index = spr_mario_walking;
 		} else {
@@ -20,12 +20,15 @@ if(instance_exists(obj_player)) {
 				sprite_index = spr_mario_crouch;
 			}
 		}
-	} else if(!obj_player.onGround && !obj_player.hitState) {
+	} else if(!obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking) {
 		sprite_index = spr_mario_jumping;
 	}
 
 	if(obj_player.hitState)
 		sprite_index = spr_mario_damage;
+		
+	if(obj_player.attacking)
+		sprite_index = spr_mario_attack;
 		
 	if(obj_player.invincibilityState){
 		spriteFlashingTimeout += delta_time / 1000000;

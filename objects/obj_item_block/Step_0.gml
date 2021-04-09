@@ -17,7 +17,27 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 			var heart = instance_create_layer(x, y, "Objects", obj_heart);
 			heart.depth = -400;
 			heart.sprite_index = spr_big_heart;
-			global.hearts += 10;
+			global.hearts += 5;
+			break;
+		}
+		
+		case "fire_flower": {
+			var weapon = instance_create_layer(x, y - 8, "Objects", obj_weapon);
+			audio_play_sound(snd_item_appear, 1, false);
+			break;
+		}
+		
+		case "hammer": {
+			var weapon = instance_create_layer(x, y - 8, "Objects", obj_weapon);
+			weapon.weapon_type = "hammer";
+			audio_play_sound(snd_item_appear, 1, false);
+			break;
+		}
+		
+		case "cross": {
+			var weapon = instance_create_layer(x, y - 8, "Objects", obj_weapon);
+			weapon.weapon_type = "cross";
+			audio_play_sound(snd_item_appear, 1, false);
 			break;
 		}
 		
@@ -52,10 +72,4 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 
 if(sprite_index == spr_item_block_destroyed && image_index > 7) {
 	image_speed = 0;
-}
-
-if(!box_invisible && !hit) {
-	image_alpha = 0;
-} else {
-	image_alpha = 1;
 }

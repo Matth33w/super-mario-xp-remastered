@@ -6,3 +6,8 @@ if(!audio_is_playing(stage_bgm) || !global.continuousMusic) {
 }
 
 global.lastRoom = room;
+
+stage_fadeout = false;
+
+stage_fadein_offset = -32;
+stage_fadeout_offset = -1;

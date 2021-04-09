@@ -20,3 +20,8 @@ invincibilityState = false;
 invincibilityTimeout = 0;
 
 playerDead = false;
+canMove = true;
+
+attacking = false;
+
+lastHorizontalDirection = 1;

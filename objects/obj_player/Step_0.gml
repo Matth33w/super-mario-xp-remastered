@@ -1,5 +1,5 @@
 //Horizontal Movement
-if(!hitState)
+if(!hitState && canMove)
 	currentX = horizontalSpeed * global.horizontal;
 
 //Clamp variables
@@ -10,12 +10,15 @@ currentY = clamp(currentY, -yMax, yMax);
 onGround = place_meeting(x, y + 1, obj_ground_group);
 isMoving = !place_meeting(x + global.horizontal, y, obj_ground_group) && global.horizontal != 0;
 
+if(global.horizontal != 0)
+	lastHorizontalDirection = global.horizontal;
+
 //Collisions
 ////Horizontal
-if(!place_meeting(x + currentX, y, obj_ground_group) && !hitState) {
+if(!place_meeting(x + currentX, y, obj_ground_group) && !hitState && canMove) {
 	x += currentX;
 } else {
-	while(!place_meeting(x + sign(currentX), y, obj_ground_group) && !hitState){
+	while(!place_meeting(x + sign(currentX), y, obj_ground_group) && !hitState && canMove){
 		x += sign(currentX);
 	}
 }
@@ -35,29 +38,29 @@ if(!place_meeting(x, y + round(currentY), obj_ground_group)) {
 	currentY = 0;
 }
 
-if(onGround && global.jump && global.vertical >= 0 && !hitState) {
+if(onGround && global.jump && global.vertical >= 0 && !hitState && canMove) {
 	currentY = -5;
 	audio_play_sound(snd_mario_jump, 1, false);
 }
 
-if(onGround && global.jump && global.vertical < 0 && !hitState) {
+if(onGround && global.jump && global.vertical < 0 && !hitState && canMove) {
 	currentY = -5.76;
 	audio_play_sound(snd_mario_jump, 1, false);
 	audio_play_sound(snd_mario_highjump, 1, false);
 }
 
 //Camera
-camera_set_view_pos(view_camera[0], round(x - (camera_get_view_width(view_camera[0]) / 2)), round(y));
+camera_set_view_pos(view_camera[0], (x - (camera_get_view_width(view_camera[0]) / 2)) + camera_offset_x, round(y) + camera_offset_y);
 
-if(camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) > room_height) {
+if(camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + camera_offset_y > room_height + camera_offset_y) {
 	camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), room_height - camera_get_view_height(view_camera[0]));
-} else if (camera_get_view_y(view_camera[0]) < 0) {
+} else if (camera_get_view_y(view_camera[0]) - camera_offset_y < 0 - camera_offset_y) {
 	camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), 0);
 }
 
-if(camera_get_view_x(view_camera[0]) > room_width - camera_get_view_width(view_camera[0])) {
-	camera_set_view_pos(view_camera[0], room_width - camera_get_view_width(view_camera[0]), camera_get_view_y(view_camera[0]));
-} else if(camera_get_view_x(view_camera[0]) < 0) {
+if(camera_get_view_x(view_camera[0]) + camera_offset_x > room_width - camera_get_view_width(view_camera[0])) {
+	camera_set_view_pos(view_camera[0], room_width - camera_get_view_width(view_camera[0]) + camera_offset_x, camera_get_view_y(view_camera[0]));
+} else if(camera_get_view_x(view_camera[0]) - camera_offset_x < 0 - camera_offset_x) {
 	camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]));
 }
 
@@ -97,3 +100,26 @@ if(y > room_height + sprite_height + 20 && !playerDead) {
 	audio_play_sound(snd_mario_dead, 1, false);
 	global.playerDead = true;
 }
+
+if(!attacking && !hitState && !playerDead && global.attack) {
+	switch(global.playerWeapon) {
+		case "hammer": {
+			if(global.hearts > 0) {
+				audio_play_sound(snd_weapon_1, 1, false);
+				global.hearts--;
+				obj_player_sprite.image_index = 0;
+				var hammer = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_hammer_player);
+				hammer.initial_horizontal = hammer.initial_horizontal * lastHorizontalDirection;
+				hammer.hammer_direction = lastHorizontalDirection;
+				attacking = true;
+			}
+		}
+	}
+}
+
+if(attacking && obj_player_sprite.sprite_index == spr_mario_attack && obj_player_sprite.image_index > 3) {
+	attacking = false;
+}
+
+if(global.oneHit && global.pHealth > 1)
+	global.pHealth = 1;

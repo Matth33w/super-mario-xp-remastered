@@ -1,0 +1,1 @@
+particleTimer = 0;

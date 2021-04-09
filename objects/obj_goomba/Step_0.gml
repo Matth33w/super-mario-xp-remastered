@@ -31,9 +31,7 @@ if(place_meeting(x, y - 1, obj_player) && !dead && !global.jumpHold && !obj_play
 	sprite_index = spr_goomba_dead;
 	obj_player.currentY = -5;
 } else if(place_meeting(x, y, obj_player) && !dead && !obj_player.hitState && !obj_player.invincibilityState) {
-	obj_player.hitState = true;
-	global.pHealth -= 3;
-	audio_play_sound(snd_mario_damage_1, 1, false);
+	mario_damage(3);
 }
 
 if(dead) {

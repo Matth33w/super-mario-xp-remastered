@@ -9,3 +9,5 @@ global.jump = (keyboard_check_pressed(vk_shift) || gamepad_button_check_pressed(
 global.jumpHold = (keyboard_check(vk_shift) || gamepad_button_check(0, gp_face1));
 
 global.start = (keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0, gp_start));
+
+global.attack = (keyboard_check_pressed(vk_control) || gamepad_button_check_pressed(0, gp_face3)); 
