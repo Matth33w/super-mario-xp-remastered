@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "bgm_stage1_snes.mp3",
-  "duration": 30.3331623,
+  "duration": 30.3281631,
   "parent": {
     "name": "SNES",
     "path": "folders/Sounds/Musics/SNES.yy",

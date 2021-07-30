@@ -11,3 +11,5 @@ stage_fadeout = false;
 
 stage_fadein_offset = -32;
 stage_fadeout_offset = -1;
+
+stage_fadeout_timer = 0;

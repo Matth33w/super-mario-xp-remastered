@@ -25,5 +25,7 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_center);
 draw_text(camera_get_view_x(view_camera[0]) + 52, camera_get_view_y(view_camera[0]) + 20, string(global.hearts));
 
-draw_sprite(spr_fade_in_stage, 0, camera_get_view_x(view_camera[0]) + stage_fadein_offset, camera_get_view_y(view_camera[0]));
-draw_sprite(spr_fade_out_stage, 0, camera_get_view_x(view_camera[0]) + stage_fadeout_offset, camera_get_view_y(view_camera[0]));
+if(global.smoothTransitions) {
+	draw_sprite(spr_fade_in_stage, 0, camera_get_view_x(view_camera[0]) + stage_fadein_offset, camera_get_view_y(view_camera[0]));
+	draw_sprite(spr_fade_out_stage, 0, camera_get_view_x(view_camera[0]) + stage_fadeout_offset, camera_get_view_y(view_camera[0]));
+}

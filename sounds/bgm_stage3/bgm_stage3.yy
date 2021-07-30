@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "bgm_stage3.mp3",
-  "duration": 29.8629589,
+  "duration": 29.85796,
   "parent": {
     "name": "Original",
     "path": "folders/Sounds/Musics/Original.yy",

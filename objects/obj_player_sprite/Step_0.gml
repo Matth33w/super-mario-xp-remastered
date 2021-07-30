@@ -1,11 +1,6 @@
 if(instance_exists(obj_player)) {
-	x = obj_player.x;
-	y = obj_player.y;
-	
-	if(global.horizontal < 0 && !obj_player.hitState && obj_player.canMove) {
-		image_xscale = -1;
-	} else if(global.horizontal > 0 && !obj_player.hitState && obj_player.canMove) {
-		image_xscale = 1;
+	if(!obj_player.hitState && obj_player.canMove) {
+		image_xscale = obj_player.lastHorizontalDirection;
 	}
 
 	if(obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking) {

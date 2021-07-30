@@ -1,14 +1,16 @@
 //Horizontal Movement
 if(!hitState && canMove)
-	currentX = horizontalSpeed * global.horizontal;
+	currentX = horizontalSpeed * global.horizontal + platformHorizontalEffector;
 
 //Clamp variables
 currentX = clamp(currentX, -xMax, xMax);
 currentY = clamp(currentY, -yMax, yMax);
 
 //Step Variables
-onGround = place_meeting(x, y + 1, obj_ground_group);
+onGround = place_meeting(x, y + 1, obj_ground_group) || steppingOnPlatform;
 isMoving = !place_meeting(x + global.horizontal, y, obj_ground_group) && global.horizontal != 0;
+
+steppingOnPlatform = false;
 
 if(global.horizontal != 0)
 	lastHorizontalDirection = global.horizontal;
@@ -27,6 +29,12 @@ if(onGround)
 	blockHit = false;
 
 currentY += 0.18;
+
+if(place_meeting(x, y + 1, obj_destroyable_platform)) {
+	if(instance_exists(obj_platform_breaker)) {
+		obj_platform_breaker.active = true;
+	}
+}
 
 ////Vertical
 if(!place_meeting(x, y + round(currentY), obj_ground_group)) {
@@ -93,7 +101,7 @@ if(global.pHealth == 0 && !playerDead) {
 	audio_play_sound(snd_mario_dead, 1, false);
 }
 
-if(y > room_height + sprite_height + 20 && !playerDead) {
+if(y > room_height + sprite_height + 64 && !playerDead && canMove) {
 	playerDead = true;
 	instance_destroy();
 	audio_stop_all();
@@ -104,7 +112,7 @@ if(y > room_height + sprite_height + 20 && !playerDead) {
 if(!attacking && !hitState && !playerDead && global.attack) {
 	switch(global.playerWeapon) {
 		case "hammer": {
-			if(global.hearts > 0) {
+			if(global.hearts > 0 && instance_number(obj_hammer_player) < 2) {
 				audio_play_sound(snd_weapon_1, 1, false);
 				global.hearts--;
 				obj_player_sprite.image_index = 0;
@@ -113,6 +121,33 @@ if(!attacking && !hitState && !playerDead && global.attack) {
 				hammer.hammer_direction = lastHorizontalDirection;
 				attacking = true;
 			}
+			break;
+		}
+		
+		case "fire_flower": {
+			if(global.hearts > 0 && instance_number(obj_fireball) < 2) {
+				audio_play_sound(snd_weapon_1, 1, false);
+				global.hearts--;
+				obj_player_sprite.image_index = 0;
+				var fireball = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_fireball);
+				fireball.fire_direction = fireball.fire_direction * lastHorizontalDirection;
+				fireball.fire_direction = lastHorizontalDirection;
+				attacking = true;
+			}
+			break;
+		}
+		
+		case "cross": {
+			if(global.hearts > 1 && instance_number(obj_cross) < 1) {
+				audio_play_sound(snd_cross_throw, 1, false);
+				global.hearts -= 2;
+				obj_player_sprite.image_index = 0;
+				var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
+				cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
+				cross.cross_direction = lastHorizontalDirection;
+				attacking = true;
+			}
+			break;
 		}
 	}
 }
@@ -120,6 +155,9 @@ if(!attacking && !hitState && !playerDead && global.attack) {
 if(attacking && obj_player_sprite.sprite_index == spr_mario_attack && obj_player_sprite.image_index > 3) {
 	attacking = false;
 }
+
+//Reset Platform Effectors
+platformHorizontalEffector = 0;
 
 if(global.oneHit && global.pHealth > 1)
 	global.pHealth = 1;

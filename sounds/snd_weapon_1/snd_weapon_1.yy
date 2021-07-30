@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_weapon_1.mp3",
-  "duration": 0.240102,
+  "duration": 0.235102,
   "parent": {
     "name": "SFX",
     "path": "folders/Sounds/SFX.yy",
