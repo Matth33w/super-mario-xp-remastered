@@ -24,3 +24,19 @@ if(platformInstance && currentY >= 0 && y < platformInstance.y + 2 && platformIn
 		}
 	}
 }
+
+
+//Camera
+camera_set_view_pos(view_camera[0], (x - (camera_get_view_width(view_camera[0]) / 2)) + camera_offset_x, round(y) + camera_offset_y);
+
+if(camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + camera_offset_y > room_height + camera_offset_y) {
+	camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), room_height - camera_get_view_height(view_camera[0]));
+} else if (camera_get_view_y(view_camera[0]) - camera_offset_y < 0 - camera_offset_y) {
+	camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), 0);
+}
+
+if(camera_get_view_x(view_camera[0]) + camera_offset_x > room_width - camera_get_view_width(view_camera[0])) {
+	camera_set_view_pos(view_camera[0], room_width - camera_get_view_width(view_camera[0]) + camera_offset_x, camera_get_view_y(view_camera[0]));
+} else if(camera_get_view_x(view_camera[0]) - camera_offset_x < 0 - camera_offset_x) {
+	camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]));
+}

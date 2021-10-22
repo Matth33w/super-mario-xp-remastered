@@ -3,7 +3,7 @@ if(instance_exists(obj_player)) {
 		image_xscale = obj_player.lastHorizontalDirection;
 	}
 
-	if(obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking) {
+	if(obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking && !obj_player.warpState) {
 		if(obj_player.isMoving) {
 			sprite_index = spr_mario_walking;
 		} else {
@@ -15,7 +15,7 @@ if(instance_exists(obj_player)) {
 				sprite_index = spr_mario_crouch;
 			}
 		}
-	} else if(!obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking) {
+	} else if(!obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking && !obj_player.warpState) {
 		sprite_index = spr_mario_jumping;
 	}
 

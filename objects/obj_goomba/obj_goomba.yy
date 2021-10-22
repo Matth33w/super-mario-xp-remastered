@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_enemy_group",
+    "path": "objects/obj_enemy_group/obj_enemy_group.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

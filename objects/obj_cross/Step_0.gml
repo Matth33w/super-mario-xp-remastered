@@ -11,6 +11,8 @@ crossSpeed -= 0.06;
 
 image_angle += 10 * -cross_direction;
 
+depth = -500;
+
 particleTimeout -= delta_time / 1000000;
 
 if(particleTimeout <= 0) {

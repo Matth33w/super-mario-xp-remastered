@@ -2,9 +2,14 @@ x += fireballSpeed * fire_direction;
 
 currentY += 0.2;
 
-image_angle += 20 * -fire_direction;
+currentAngle += 20 * -fire_direction;
 
-if(place_meeting(x, y + currentY + 1, obj_ground_group) && currentY > 0) {
+y += round(currentY);
+
+image_alpha = 0;
+depth = -500;
+
+if(place_meeting(x, y + currentY, obj_ground_group) && currentY > 0) {
 	while(!place_meeting(x, y + 1, obj_ground_group)) {
 		y += 1;
 	}
@@ -15,12 +20,10 @@ if(place_meeting(x + round(fireballSpeed), y, obj_ground_group)) {
 	while(!place_meeting(x + sign(fireballSpeed), y, obj_ground_group)) {
 		x += sign(fireballSpeed);
 	}
-	
+	audio_play_sound(snd_fireball_impact, 1, false);
+	instance_create_layer(x, y, "Objects", obj_fireball_explosion);
 	instance_destroy();
 }
-
-y += round(currentY);
-
 particleTimeout -= delta_time / 1000000;
 
 if(particleTimeout <= 0) {

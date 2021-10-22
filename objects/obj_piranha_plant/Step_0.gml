@@ -15,7 +15,7 @@ onScreen = x > camera_get_view_x(view_camera[0]) - 30 &&
 		   y > camera_get_view_y(view_camera[0]) - 30 && 
 		   y < camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + 30;
 
-if(onScreen && !global.playerDead) {
+if(onScreen && !global.playerDead && !dead) {
 	if(y > initialYPosition) {
 		y = initialYPosition;
 	} else if(y < maxYPosition) {
@@ -49,6 +49,46 @@ if(onScreen && !global.playerDead) {
 			}
 		}
 		piranhaDirection = -piranhaDirection;
+	}
+}
+
+if(!dead) {
+	var hammerTouched = instance_place(x, y, obj_hammer_player);
+	var fireTouched = instance_place(x, y, obj_fireball);
+	var crossTouched = instance_place(x, y, obj_cross);
+	var koopa = instance_place(x, y + 1, obj_koopa);
+	
+	if(hammerTouched) {
+		dead = true;
+		hammerTouched.initial_vertical = -2.5;
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+		instance_destroy();
+	}
+	
+	if(fireTouched) {
+		dead = true;
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		instance_destroy(fireTouched);
+		instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+		instance_destroy();
+	}
+	
+	if(crossTouched) {
+		defeated = true;
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+		instance_destroy();
+	}
+	
+	if(koopa) {	
+		if(koopa.shellMoving) {
+			defeated = true;
+			audio_play_sound(snd_enemy_defeat, 1, false);
+			instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+			instance_destroy();
+		}
 	}
 }
 

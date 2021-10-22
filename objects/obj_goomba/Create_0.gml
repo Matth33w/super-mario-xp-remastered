@@ -5,4 +5,7 @@ currentX = 0;
 currentY = 0;
 
 dead = false;
+defeated = false;
 deadTimeout = 0;
+
+defeatedYSpeed = -4.5;

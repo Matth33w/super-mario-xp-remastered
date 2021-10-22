@@ -17,7 +17,7 @@ if(particleTimer > 0.10) {
 	instance_create_layer(x, y, "Objects", obj_weapon_particle);
 }
 
-depth = -400
+depth = -500;
 
 if(x < camera_get_view_x(view_camera[0]) - 30 || 
    x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) + 30 ||

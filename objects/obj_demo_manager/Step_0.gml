@@ -5,5 +5,5 @@ if(demoTimeout > 1) {
 }
 
 if(demoTimeout > 3) {
-	room_goto(stage_3_3_alt);
+	room_goto(title_screen);
 }

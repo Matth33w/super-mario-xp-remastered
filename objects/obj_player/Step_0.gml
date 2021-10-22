@@ -25,8 +25,10 @@ if(!place_meeting(x + currentX, y, obj_ground_group) && !hitState && canMove) {
 	}
 }
 
-if(onGround)
+if(onGround) {
 	blockHit = false;
+	enemyBounce = false;
+}
 
 currentY += 0.18;
 
@@ -37,13 +39,15 @@ if(place_meeting(x, y + 1, obj_destroyable_platform)) {
 }
 
 ////Vertical
-if(!place_meeting(x, y + round(currentY), obj_ground_group)) {
-	y += round(currentY);
-} else {
-	while(!place_meeting(x, y + sign(currentY), obj_ground_group)) {
-		y += sign(currentY);
+if(!warpState) {
+	if(!place_meeting(x, y + round(currentY), obj_ground_group)) {
+		y += round(currentY);
+	} else {
+		while(!place_meeting(x, y + sign(currentY), obj_ground_group)) {
+			y += sign(currentY);
+		}
+		currentY = 0;
 	}
-	currentY = 0;
 }
 
 if(onGround && global.jump && global.vertical >= 0 && !hitState && canMove) {
@@ -57,22 +61,10 @@ if(onGround && global.jump && global.vertical < 0 && !hitState && canMove) {
 	audio_play_sound(snd_mario_highjump, 1, false);
 }
 
-//Camera
-camera_set_view_pos(view_camera[0], (x - (camera_get_view_width(view_camera[0]) / 2)) + camera_offset_x, round(y) + camera_offset_y);
-
-if(camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + camera_offset_y > room_height + camera_offset_y) {
-	camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), room_height - camera_get_view_height(view_camera[0]));
-} else if (camera_get_view_y(view_camera[0]) - camera_offset_y < 0 - camera_offset_y) {
-	camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), 0);
-}
-
-if(camera_get_view_x(view_camera[0]) + camera_offset_x > room_width - camera_get_view_width(view_camera[0])) {
-	camera_set_view_pos(view_camera[0], room_width - camera_get_view_width(view_camera[0]) + camera_offset_x, camera_get_view_y(view_camera[0]));
-} else if(camera_get_view_x(view_camera[0]) - camera_offset_x < 0 - camera_offset_x) {
-	camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]));
-}
-
-depth = 300;
+if(!warpState)
+	obj_player_sprite.depth = 100;
+else
+	obj_player_sprite.depth = 150;
 
 //Hit and invincibility timers
 if(hitState)
@@ -155,6 +147,58 @@ if(!attacking && !hitState && !playerDead && global.attack) {
 if(attacking && obj_player_sprite.sprite_index == spr_mario_attack && obj_player_sprite.image_index > 3) {
 	attacking = false;
 }
+
+if(warpState) {
+	switch(warpDirection) {
+		case "up": {
+			if(y > warpYLimit)
+				y -= 0.7;
+			else {
+				if(global.screenToWarp != noone) {
+					obj_stage_manager.stage_fadeout = true;
+					
+					if(global.smoothTransitions && obj_stage_manager.stage_fadeout_offset >= camera_get_view_width(view_camera[0]) + 64 && obj_stage_manager.stage_fadeout && obj_stage_manager.stage_fadeout_timer > 1) {
+						room_goto(global.screenToWarp);
+					} else if(!global.smoothTransitions) {
+						room_goto(global.screenToWarp);
+					}
+					
+				} else {
+					canMove = true;
+					warpState = false;
+					currentY = 0;
+					global.initialWarping = false;
+				}
+			}
+			break;
+		}
+		
+		case "down": {
+			if(y < warpYLimit)
+				y += 0.7;
+			else {
+				if(global.screenToWarp != noone) {
+					obj_stage_manager.stage_fadeout = true;
+					
+					if(global.smoothTransitions && obj_stage_manager.stage_fadeout_offset >= camera_get_view_width(view_camera[0]) + 64 && obj_stage_manager.stage_fadeout && obj_stage_manager.stage_fadeout_timer > 1) {
+						room_goto(global.screenToWarp);
+					} else if(!global.smoothTransitions) {
+						room_goto(global.screenToWarp);
+					}
+					
+				} else {
+					canMove = true;
+					warpState = false;
+					currentY = 0;
+					global.initialWarping = false;
+				}
+			}
+			break;
+		}
+	}
+}
+
+show_debug_message(global.initialWarpDirection);
 
 //Reset Platform Effectors
 platformHorizontalEffector = 0;

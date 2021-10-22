@@ -16,12 +16,22 @@ global.playerLives = 5;
 
 global.playerWeapon = "none";
 
-set_soundtrack("remastered");
+global.startX = -1;
+global.startY = -1;
+
+global.initialWarping = false;
+global.initialWarpDirection = "none";
+
+global.screenToWarp = noone;
+
+global.warpsEntered = [];
+
+set_soundtrack("original");
 
 //Dipswitches
-global.continuousMusic = true;
-global.smoothTransitions = true;
-global.parallaxScrolling = true;
+global.continuousMusic = false;
+global.smoothTransitions = false;
+global.parallaxScrolling = false;
 
 global.oneHit = false;
 

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_fireball",
-    "path": "sprites/spr_fireball/spr_fireball.yy",
+    "name": "spr_fireball_mask",
+    "path": "sprites/spr_fireball_mask/spr_fireball_mask.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,11 +21,12 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":0,"value":"1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"fire_direction","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"fire_direction","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

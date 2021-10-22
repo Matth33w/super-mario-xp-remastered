@@ -51,9 +51,9 @@ if(!appearing && place_meeting(x, y + 1, obj_ground_group)){
 	} else if(block != noone && block.hit && block.sprite_index == spr_item_block_destroyed && obj_player.blockHit && entityCurrentY == 0 && mario != noone && (x < mario.x + 8 && x > mario.x - 8)) {
 		entityCurrentY = -3;
 		
-		if(x < obj_player.x && entityDirection == 1) {
+		if(x < block.x && entityDirection == 1) {
 			entityDirection = -1;
-		} else if (x > obj_player.x && entityDirection == -1) {
+		} else if (x > block.x && entityDirection == -1) {
 			entityDirection = 1;
 		}
 	}
@@ -78,8 +78,8 @@ switch(mushroomType) {
 
 entityCurrentY += 0.2;
 
-if(!place_meeting(x, y + entityCurrentY, obj_ground_group) && !appearing && !global.playerDead) {
-	y += entityCurrentY;
+if(!place_meeting(x, y + round(entityCurrentY), obj_ground_group) && !appearing && !global.playerDead) {
+	y += round(entityCurrentY);
 } else {
 	while(!place_meeting(x, y + sign(entityCurrentY), obj_ground_group) && !global.playerDead) {
 		y += sign(entityCurrentY);
