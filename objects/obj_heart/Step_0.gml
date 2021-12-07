@@ -10,5 +10,6 @@ timeout += delta_time / 1000000;
 
 if(timeout > 0.5) {
 	instance_destroy();
+	audio_stop_sound(snd_heart);
 	audio_play_sound(snd_heart, 1, false);
 }

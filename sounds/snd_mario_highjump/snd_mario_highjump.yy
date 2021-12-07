@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_mario_highjump.wav",
-  "duration": 0.325907,
+  "duration": 0.395733,
   "parent": {
     "name": "Mario",
     "path": "folders/Sounds/SFX/Mario.yy",

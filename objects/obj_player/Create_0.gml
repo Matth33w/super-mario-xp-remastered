@@ -33,6 +33,12 @@ warpYLimit = 0;
 warpChangeScreen = false;
 
 attacking = false;
+itemCrash = false;
+
+itemCrashTimeout = 0;
+itemCrashThrow = 0;
+
+itemCrashCrossSFX = false;
 
 lastHorizontalDirection = initial_horizontal_direction;
 

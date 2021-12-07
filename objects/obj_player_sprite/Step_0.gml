@@ -1,9 +1,9 @@
 if(instance_exists(obj_player)) {
-	if(!obj_player.hitState && obj_player.canMove) {
+	if(!obj_player.hitState && obj_player.canMove && !obj_player.itemCrash) {
 		image_xscale = obj_player.lastHorizontalDirection;
 	}
 
-	if(obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking && !obj_player.warpState) {
+	if(obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking && !obj_player.warpState && !obj_player.itemCrash) {
 		if(obj_player.isMoving) {
 			sprite_index = spr_mario_walking;
 		} else {
@@ -15,14 +15,20 @@ if(instance_exists(obj_player)) {
 				sprite_index = spr_mario_crouch;
 			}
 		}
-	} else if(!obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking && !obj_player.warpState) {
+	} else if(!obj_player.onGround && !obj_player.hitState && obj_player.canMove && !obj_player.attacking && !obj_player.warpState && !obj_player.itemCrash) {
 		sprite_index = spr_mario_jumping;
 	}
 
 	if(obj_player.hitState)
 		sprite_index = spr_mario_damage;
 		
-	if(obj_player.attacking)
+	if(obj_player.itemCrash && global.playerWeapon != "cross")
+		sprite_index = spr_mario_special_1;
+		
+	if(obj_player.itemCrash && global.playerWeapon == "cross")
+		sprite_index = spr_mario_special_2;
+		
+	if(obj_player.attacking && !obj_player.itemCrash)
 		sprite_index = spr_mario_attack;
 		
 	if(obj_player.invincibilityState){

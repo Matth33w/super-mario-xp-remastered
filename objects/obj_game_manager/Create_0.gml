@@ -26,12 +26,12 @@ global.screenToWarp = noone;
 
 global.warpsEntered = [];
 
-set_soundtrack("original");
+set_soundtrack("remastered");
 
 //Dipswitches
-global.continuousMusic = false;
-global.smoothTransitions = false;
-global.parallaxScrolling = false;
+global.continuousMusic = true;
+global.smoothTransitions = true;
+global.parallaxScrolling = true;
 
 global.oneHit = false;
 

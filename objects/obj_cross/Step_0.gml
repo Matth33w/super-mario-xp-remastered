@@ -5,7 +5,11 @@ if(x < camera_get_view_x(view_camera[0]) - 30 ||
 	   instance_destroy();
 }
 
-x += crossSpeed * cross_direction;
+if(!specialCross) {
+	x += crossSpeed * cross_direction;
+} else {
+	
+}
 
 crossSpeed -= 0.06;
 
@@ -28,4 +32,9 @@ if(crossSpeed < 0 && !canCollect) {
 if(place_meeting(x, y, obj_player) && canCollect) {
 	instance_destroy();
 	audio_play_sound(snd_cross_collect, 1, false);
+}
+
+if(specialCross) {
+	y -= 6;
+	x += specialXSpeed;
 }

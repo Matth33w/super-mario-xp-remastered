@@ -30,63 +30,9 @@ if(!onCamera && instance_exists(obj_player)) {
 	}
 }
 
-if(place_meeting(x, y - 1, obj_player) && !dead && !defeated && !global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
-	dead = true;
-	audio_play_sound(snd_goomba_death, 1, false);
-	if(type == "green")
-		sprite_index = spr_shell_green;
-	else if(type == "red")
-		sprite_index = spr_shell_red;
-	obj_player.currentY = -1.5;
-	obj_player.enemyBounce += 1;
-	check_bounce();
-} else if(place_meeting(x, y - 1, obj_player) && !dead && !defeated && global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
-	dead = true;
-	audio_play_sound(snd_goomba_death, 1, false);
-	if(type == "green")
-		sprite_index = spr_shell_green;
-	else if(type == "red")
-		sprite_index = spr_shell_red;
-	obj_player.currentY = -5;
-	obj_player.enemyBounce += 1;
-	check_bounce();
-} else if(place_meeting(x, y, obj_player) && !dead && !defeated && !obj_player.hitState && !obj_player.invincibilityState) {
-	mario_damage(3);
-}
-
-if(place_meeting(x, y - 1, obj_player) && dead && !defeated && !global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
-	audio_play_sound(snd_shell_hit, 1, false);
-	obj_player.enemyBounce += 1;
-	check_bounce();
-	obj_player.currentY = -1.5;
-	
-	if(!shellMoving)
-		shellMoving = true;
-		
-	shellDirection = sign(x - obj_player.x);
-	if(shellDirection == 0)
-		shellDirection = 1;
-		
-} else if(place_meeting(x, y - 1, obj_player) && dead && !defeated && global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
-	audio_play_sound(snd_shell_hit, 1, false);
-	obj_player.enemyBounce += 1;
-	check_bounce();
-	obj_player.currentY = -5;
-	
-	if(!shellMoving)
-		shellMoving = true;
-		
-	shellDirection = sign(x - obj_player.x);
-	if(shellDirection == 0)
-		shellDirection = 1;
-	
-} else if(place_meeting(x, y, obj_player) && dead && shellMoving && !defeated && !obj_player.hitState && !obj_player.invincibilityState) {
-	mario_damage(3);
-}
-
 if(shellMoving && !defeated && !global.playerDead) {
 	if(!place_meeting(x + round(shellDirection * 2.5), y, obj_ground_group)) {
-		x += round(shellDirection * 2.5);
+		x += round(shellDirection * 3);
 	} else {
 		while(!place_meeting(x + sign(shellDirection), y, obj_ground_group)) {
 			x += sign(shellDirection);
@@ -106,25 +52,87 @@ if(defeated) {
 	defeatedYSpeed += 0.3;
 }
 
+if(type == "green" && paratroopa && place_meeting(x, y + 1, obj_ground_group) && !dead) {
+	currentY = -4;
+}
+
 if(instance_exists(obj_player)) {
-	if(!defeated && dead && !shellMoving && place_meeting(x + abs(obj_player.currentX) + 2, y, obj_player)) {
+	if(!defeated && dead && !shellMoving && place_meeting(x + abs(obj_player.currentX) + 3, y, obj_player)) {
 		obj_player.enemyBounce += 1;
 		check_bounce();
-		obj_player.currentY = -2;
+		obj_player.currentY = -1.5;
 	
 		shellMoving = true;
 		shellDirection = -1;
 		audio_play_sound(snd_shell_hit, 1, false);
 	}
 
-	if(!defeated && dead && !shellMoving && place_meeting(x + (-abs(obj_player.currentX) - 2), y, obj_player)) {
+	if(!defeated && dead && !shellMoving && place_meeting(x + (-abs(obj_player.currentX) - 3), y, obj_player)) {
 		obj_player.enemyBounce += 1;
 		check_bounce();
-		obj_player.currentY = -2;
+		obj_player.currentY = -1.5;
 	
 		shellMoving = true;
 		shellDirection = 1;
 		audio_play_sound(snd_shell_hit, 1, false);
+	}
+	
+	if(place_meeting(x, y - obj_player.currentY, obj_player) && !dead && !defeated && !global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
+		dead = true;
+		audio_play_sound(snd_goomba_death, 1, false);
+		if(type == "green")
+			sprite_index = spr_shell_green;
+		else if(type == "red")
+			sprite_index = spr_shell_red;
+		obj_player.currentY = -1.5;
+		obj_player.enemyBounce += 1;
+		currentY = 0;
+		check_bounce();
+	} else if(place_meeting(x, y - obj_player.currentY, obj_player) && !dead && !defeated && global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
+		dead = true;
+		audio_play_sound(snd_goomba_death, 1, false);
+		if(type == "green")
+			sprite_index = spr_shell_green;
+		else if(type == "red")
+			sprite_index = spr_shell_red;
+		obj_player.currentY = -5;
+		obj_player.enemyBounce += 1;
+		currentY = 0;
+		check_bounce();
+	} else if(place_meeting(x, y, obj_player) && !dead && !defeated && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash) {
+		mario_damage(3);
+	}
+
+	if(place_meeting(x, y - obj_player.currentY, obj_player) && dead && !defeated && !global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
+		audio_play_sound(snd_shell_hit, 1, false);
+		obj_player.enemyBounce += 1;
+		check_bounce();
+		obj_player.y = y - sprite_height;
+		obj_player.currentY = -1.5;
+	
+		if(!shellMoving)
+			shellMoving = true;
+		
+		shellDirection = sign(x - obj_player.x);
+		if(shellDirection == 0)
+			shellDirection = 1;
+		
+	} else if(place_meeting(x, y - obj_player.currentY, obj_player) && dead && !defeated && global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
+		audio_play_sound(snd_shell_hit, 1, false);
+		obj_player.enemyBounce += 1;
+		check_bounce();
+		obj_player.y = y - sprite_height;
+		obj_player.currentY = -5;
+	
+		if(!shellMoving)
+			shellMoving = true;
+		
+		shellDirection = sign(x - obj_player.x);
+		if(shellDirection == 0)
+			shellDirection = 1;
+	
+	} else if(place_meeting(x, y, obj_player) && dead && shellMoving && !defeated && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash) {
+		mario_damage(3);
 	}
 }
 
@@ -232,7 +240,10 @@ if(onCamera && !global.playerDead && !defeated) {
 		}
 		
 		default: {
-			currentY += 0.3;
+			if(paratroopa)
+				currentY += 0.2;
+			else
+				currentY += 0.3;
 			break;
 		}
 	}

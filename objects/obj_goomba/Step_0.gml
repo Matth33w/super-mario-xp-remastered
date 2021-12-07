@@ -44,7 +44,7 @@ if(place_meeting(x, y - 1, obj_player) && !dead && !defeated && !global.jumpHold
 	obj_player.currentY = -5;
 	obj_player.enemyBounce += 1;
 	check_bounce();
-} else if(place_meeting(x, y, obj_player) && !dead && !defeated && !obj_player.hitState && !obj_player.invincibilityState) {
+} else if(place_meeting(x, y, obj_player) && !dead && !defeated && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash) {
 	mario_damage(3);
 }
 

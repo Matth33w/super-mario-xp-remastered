@@ -16,6 +16,9 @@ shellDirection = 0;
 onCamera = false;
 
 if(type == "green")
-	sprite_index = spr_koopa_green;
+	if(!paratroopa)
+		sprite_index = spr_koopa_green;
+	else
+		sprite_index = spr_paratroopa_green;
 else if(type == "red")
 	sprite_index = spr_koopa_red;

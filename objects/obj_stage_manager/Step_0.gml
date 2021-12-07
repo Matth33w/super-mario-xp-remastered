@@ -29,4 +29,16 @@ if(stage_fadeout_offset < camera_get_view_width(view_camera[0]) + 64 && stage_fa
 	stage_fadeout_timer += delta_time / 1000000;
 }
 
+if(cheep_cheep_area && !global.playerDead) {
+	cheep_cheep_timer += delta_time / 1000000;
+	if(cheep_cheep_timer > cheep_cheep_timeout) {
+		instance_create_layer(irandom_range(camera_get_view_x(view_camera[0]), camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])), camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + 32, "Objects", obj_cheep_cheep);
+		cheep_cheep_timer = 0;
+		if(cheep_cheep_water_sfx)
+			audio_play_sound(snd_water, 1, false);
+	}
+} else {
+	cheep_cheep_timer = 0;
+}
+
 depth = -5000;

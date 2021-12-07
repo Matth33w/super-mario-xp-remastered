@@ -9,7 +9,7 @@ y += round(currentY);
 image_alpha = 0;
 depth = -500;
 
-if(place_meeting(x, y + currentY, obj_ground_group) && currentY > 0) {
+if(place_meeting(x, y + currentY + 1, obj_ground_group) && currentY > 0) {
 	while(!place_meeting(x, y + 1, obj_ground_group)) {
 		y += 1;
 	}

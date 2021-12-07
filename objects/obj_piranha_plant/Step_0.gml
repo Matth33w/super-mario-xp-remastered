@@ -10,6 +10,9 @@ switch(piranha_type) {
 	}
 }
 
+if(reverse)
+	image_yscale = -1;
+
 onScreen = x > camera_get_view_x(view_camera[0]) - 30 && 
 		   x < camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) + 30 &&
 		   y > camera_get_view_y(view_camera[0]) - 30 && 
@@ -58,11 +61,13 @@ if(!dead) {
 	var crossTouched = instance_place(x, y, obj_cross);
 	var koopa = instance_place(x, y + 1, obj_koopa);
 	
+	var dir = reverse ? -1 : 1;
+	
 	if(hammerTouched) {
 		dead = true;
 		hammerTouched.initial_vertical = -2.5;
 		audio_play_sound(snd_enemy_defeat, 1, false);
-		instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+		instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);
 		instance_destroy();
 	}
 	
@@ -71,14 +76,14 @@ if(!dead) {
 		audio_play_sound(snd_enemy_defeat, 1, false);
 		instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
 		instance_destroy(fireTouched);
-		instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+		instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);
 		instance_destroy();
 	}
 	
 	if(crossTouched) {
 		defeated = true;
 		audio_play_sound(snd_enemy_defeat, 1, false);
-		instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+		instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);
 		instance_destroy();
 	}
 	
@@ -86,13 +91,13 @@ if(!dead) {
 		if(koopa.shellMoving) {
 			defeated = true;
 			audio_play_sound(snd_enemy_defeat, 1, false);
-			instance_create_layer(x, y - 8, "Objects", obj_piranha_plant_defeated);
+			instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);
 			instance_destroy();
 		}
 	}
 }
 
-if(place_meeting(x, y, obj_player) && !dead && !obj_player.hitState && !obj_player.invincibilityState) {
+if(place_meeting(x, y, obj_player) && !dead && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash) {
 	mario_damage(3);
 }
 

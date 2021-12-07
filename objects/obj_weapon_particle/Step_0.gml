@@ -12,6 +12,7 @@ switch(weapon_type){
 	
 	case "cross": {
 		sprite_index = spr_cross_particle;
+		y += 2;
 		break;
 	}
 }

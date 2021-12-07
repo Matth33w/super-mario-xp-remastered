@@ -3,9 +3,13 @@ if(place_meeting(x, y + 1, obj_player) && !destroyed){
 	destroyed = true;
 	obj_player.blockHit = true;
 	for(var i = 0; i < 4; i++){
-		instance_create_layer(x, y, "Objects", obj_brick_piece);
+		var instance = instance_create_layer(x, y, "Objects", obj_brick_piece);
+		instance.secret_brick = secret_brick;
 	}
-	sprite_index = spr_brick_destroyed;
+	if(!secret_brick)
+		sprite_index = spr_brick_destroyed;
+	else
+		instance_destroy();
 }
 
 if(sprite_index == spr_brick_destroyed && image_index > 5) {

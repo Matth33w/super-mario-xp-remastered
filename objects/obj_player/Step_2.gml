@@ -40,3 +40,5 @@ if(camera_get_view_x(view_camera[0]) + camera_offset_x > room_width - camera_get
 } else if(camera_get_view_x(view_camera[0]) - camera_offset_x < 0 - camera_offset_x) {
 	camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]));
 }
+
+show_debug_message(steppingOnPlatform);

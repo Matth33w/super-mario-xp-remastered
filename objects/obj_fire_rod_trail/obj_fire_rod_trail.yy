@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_shell_green",
-    "path": "sprites/spr_shell_green/spr_shell_green.yy",
+    "name": "spr_fire_rod_trail",
+    "path": "sprites/spr_fire_rod_trail/spr_fire_rod_trail.yy",
   },
   "solid": false,
   "visible": true,
@@ -20,7 +20,10 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -28,7 +31,7 @@
     "path": "folders/Objects/Enemies.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_koopa_shell",
+  "name": "obj_fire_rod_trail",
   "tags": [],
   "resourceType": "GMObject",
 }

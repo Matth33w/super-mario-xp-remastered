@@ -39,7 +39,13 @@ if(global.debug) {
 		global.currentStage = 3;
 	}
 	
+	if(keyboard_check_pressed(vk_numpad4)) {
+		global.currentStage = 4;
+	}
+	
 	if(keyboard_check_pressed(ord("Q"))) {
 		global.pHealth = 0;
 	}
 }
+
+global.playerLives = clamp(global.playerLives, 0, 128);

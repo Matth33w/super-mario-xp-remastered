@@ -41,6 +41,6 @@ if(onScreen) {
 	}
 }
 
-if(place_meeting(x, y, obj_player) && !obj_player.hitState && !obj_player.invincibilityState) {
+if(place_meeting(x, y, obj_player) && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash) {
 	mario_damage(3);
 }

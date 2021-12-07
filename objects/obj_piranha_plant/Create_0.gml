@@ -1,7 +1,6 @@
 initialYPosition = y;
 maxYPosition = y - 31;
 
-piranhaDirection = 1;
 piranhaTimeout = 1.5;
 
 dead = false;
@@ -17,3 +16,8 @@ switch(piranha_type) {
 		break;
 	}
 }
+
+if(!reverse)
+	piranhaDirection = 1;
+else
+	piranhaDirection = -1;
