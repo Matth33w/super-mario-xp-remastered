@@ -126,6 +126,16 @@ if(onGround && global.jump && global.vertical < 0 && !hitState && canMove && !it
 	audio_play_sound(snd_mario_highjump, 1, false);
 }
 
+if(onGround && global.vertical > 0 && !isMoving && !hitState) {
+	image_yscale = 0.5;
+} else {
+	image_yscale = 1;
+}
+
+if(place_meeting(x, y, obj_ground_group)) 
+	while(place_meeting(x, y, obj_ground_group))
+		x += 1;
+
 if(!warpState)
 	obj_player_sprite.depth = 100;
 else
