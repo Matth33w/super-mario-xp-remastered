@@ -1,5 +1,5 @@
 if(active && timeout == 0) {
-	x += 1.5 * breaker_direction;
+	x += entity_speed * breaker_direction;
 }
 
 if(timeout > 0 && active) {

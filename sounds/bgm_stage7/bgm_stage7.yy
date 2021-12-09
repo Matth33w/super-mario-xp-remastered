@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "bgm_stage7.mp3",
-  "duration": 7.188673,
+  "duration": 7.183673,
   "parent": {
     "name": "Original",
     "path": "folders/Sounds/Musics/Original.yy",

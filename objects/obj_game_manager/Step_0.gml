@@ -43,6 +43,10 @@ if(global.debug) {
 		global.currentStage = 4;
 	}
 	
+	if(keyboard_check_pressed(vk_numpad7)) {
+		global.currentStage = 7;
+	}
+	
 	if(keyboard_check_pressed(ord("Q"))) {
 		global.pHealth = 0;
 	}

@@ -6,6 +6,7 @@ switch(weapon_type){
 	
 	case "fire": {
 		sprite_index = spr_fire_particle;
+		x += fireDirection;
 		y -= 1;
 		break;
 	}

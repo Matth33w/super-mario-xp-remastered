@@ -132,9 +132,9 @@ if(onGround && global.vertical > 0 && !isMoving && !hitState) {
 	image_yscale = 1;
 }
 
-if(place_meeting(x, y, obj_ground_group)) 
+if(place_meeting(x, y, obj_ground_group) && !warpState) 
 	while(place_meeting(x, y, obj_ground_group))
-		x += 1;
+		x += 1 * lastHorizontalDirection;
 
 if(!warpState)
 	obj_player_sprite.depth = 100;
@@ -173,7 +173,7 @@ if(y > room_height + sprite_height + 64 && !playerDead && canMove) {
 	instance_destroy();
 	audio_stop_all();
 	audio_play_sound(snd_mario_dead, 1, false);
-	audio_play_sound(bgm_death_jingle_remaster, 1, false);
+	audio_play_sound(global.bgm_death_jingle, 1, false);
 	global.playerDead = true;
 }
 

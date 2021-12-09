@@ -10,7 +10,7 @@ if(canMove) {
 if(canMove && ySpeed > 2) {
 	canMove = false;
 	global.playerDead = true;
-	audio_play_sound(bgm_death_jingle_remaster, 1, false);
+	audio_play_sound(global.bgm_death_jingle, 1, false);
 	image_speed = 0;
 }
 
