@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hammer_bros_opening_idle","path":"sprites/spr_hammer_bros_opening_idle/spr_hammer_bros_opening_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hammer_bros_opening_idle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shell_green","path":"sprites/spr_shell_green/spr_shell_green.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shell_green",
     "tags": [],
     "resourceType": "GMSequence",

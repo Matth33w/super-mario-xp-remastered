@@ -1,6 +1,6 @@
 if(place_meeting(x, y - 1, obj_player)) {
 	if(global.jumpHold) {
-		obj_player.currentY = -6.5;
+		obj_player.currentY = -7;
 	} else {
 		obj_player.currentY = -3;
 	}

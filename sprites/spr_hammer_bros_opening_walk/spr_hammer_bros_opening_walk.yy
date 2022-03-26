@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hammer_bros_opening_walk","path":"sprites/spr_hammer_bros_opening_walk/spr_hammer_bros_opening_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hammer_bros_opening_walk",
     "tags": [],
     "resourceType": "GMSequence",

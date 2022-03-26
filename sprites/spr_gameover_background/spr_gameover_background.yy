@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_gameover_background","path":"sprites/spr_gameover_background/spr_gameover_background.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_gameover_background",
     "tags": [],
     "resourceType": "GMSequence",

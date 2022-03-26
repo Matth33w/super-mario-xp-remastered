@@ -43,6 +43,14 @@ if(global.debug) {
 		global.currentStage = 4;
 	}
 	
+	if(keyboard_check_pressed(vk_numpad5)) {
+		global.currentStage = 5;
+	}
+	
+	if(keyboard_check_pressed(vk_numpad6)) {
+		global.currentStage = 6;
+	}
+	
 	if(keyboard_check_pressed(vk_numpad7)) {
 		global.currentStage = 7;
 	}

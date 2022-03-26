@@ -50,11 +50,16 @@ if(place_meeting(x, y - 1, obj_player) && !dead && !defeated && !global.jumpHold
 
 if(dead) {
 	deadTimeout += delta_time / 1000000;
+	if(has_undead) {
+		instance_create_layer(x, y, "Objects", obj_ghost_goomba_intro);
+		instance_destroy();
+	}
+		
 	if(deadTimeout > 0.5)
 		instance_destroy();
 }
 
-if(defeated) {
+if(defeated && !global.playerDead) {
 	y += defeatedYSpeed;
 	defeatedYSpeed += 0.3;
 }
@@ -68,12 +73,17 @@ if(!defeated && !dead) {
 	var brickTouched = instance_place(x, y + 1, obj_brick);
 	
 	var koopa = instance_place(x, y + 1, obj_koopa);
+	var paratroopa = instance_place(x, y + 1, obj_paratroopa_path);
 	
 	if(hammerTouched) {
 		defeated = true;
 		hammerTouched.initial_vertical = -2.5;
 		audio_play_sound(snd_enemy_defeat, 1, false);
 		sprite_index = spr_goomba_defeated;
+		if(has_undead) {
+			var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+			instance.skin = "goomba";
+		}
 	}
 	
 	if(fireTouched) {
@@ -82,12 +92,20 @@ if(!defeated && !dead) {
 		sprite_index = spr_goomba_defeated;
 		instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
 		instance_destroy(fireTouched);
+		if(has_undead) {
+			var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+			instance.skin = "goomba";
+		}
 	}
 	
 	if(crossTouched) {
 		defeated = true;
 		audio_play_sound(snd_enemy_defeat, 1, false);
 		sprite_index = spr_goomba_defeated;
+		if(has_undead) {
+			var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+			instance.skin = "goomba";
+		}
 	}
 	
 	if(blockTouched) {
@@ -95,6 +113,10 @@ if(!defeated && !dead) {
 			defeated = true;
 			audio_play_sound(snd_enemy_defeat, 1, false);
 			sprite_index = spr_goomba_defeated;
+			if(has_undead) {
+				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+				instance.skin = "goomba";
+			}
 		}
 	}
 	
@@ -103,6 +125,10 @@ if(!defeated && !dead) {
 			defeated = true;
 			audio_play_sound(snd_enemy_defeat, 1, false);
 			sprite_index = spr_goomba_defeated;
+			if(has_undead) {
+				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+				instance.skin = "goomba";
+			}
 		}
 	}
 	
@@ -111,6 +137,22 @@ if(!defeated && !dead) {
 			defeated = true;
 			audio_play_sound(snd_enemy_defeat, 1, false);
 			sprite_index = spr_goomba_defeated;
+			if(has_undead) {
+				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+				instance.skin = "goomba";
+			}
+		}
+	}
+	
+	if(paratroopa) {	
+		if(paratroopa.shellMoving) {
+			defeated = true;
+			audio_play_sound(snd_enemy_defeat, 1, false);
+			sprite_index = spr_goomba_defeated;
+			if(has_undead) {
+				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+				instance.skin = "goomba";
+			}
 		}
 	}
 }

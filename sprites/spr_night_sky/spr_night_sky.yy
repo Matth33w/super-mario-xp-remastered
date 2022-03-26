@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_night_sky","path":"sprites/spr_night_sky/spr_night_sky.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_night_sky",
     "tags": [],
     "resourceType": "GMSequence",

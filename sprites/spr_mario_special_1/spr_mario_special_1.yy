@@ -199,7 +199,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_mario_special_1","path":"sprites/spr_mario_special_1/spr_mario_special_1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_mario_special_1",
     "tags": [],
     "resourceType": "GMSequence",

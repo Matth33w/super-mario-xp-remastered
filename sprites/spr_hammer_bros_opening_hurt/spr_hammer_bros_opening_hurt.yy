@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hammer_bros_opening_hurt","path":"sprites/spr_hammer_bros_opening_hurt/spr_hammer_bros_opening_hurt.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hammer_bros_opening_hurt",
     "tags": [],
     "resourceType": "GMSequence",

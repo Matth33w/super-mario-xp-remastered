@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_goomba_dead","path":"sprites/spr_goomba_dead/spr_goomba_dead.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_goomba_dead",
     "tags": [],
     "resourceType": "GMSequence",

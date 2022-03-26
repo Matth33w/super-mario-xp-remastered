@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_title_background_remaster_2","path":"sprites/spr_title_background_remaster_2/spr_title_background_remaster_2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_title_background_remaster_2",
     "tags": [],
     "resourceType": "GMSequence",

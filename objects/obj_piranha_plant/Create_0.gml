@@ -1,7 +1,7 @@
 initialYPosition = y;
 maxYPosition = y - 31;
 
-piranhaTimeout = 1.5;
+piranhaTimeout = 2;
 
 dead = false;
 

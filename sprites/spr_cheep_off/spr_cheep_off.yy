@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cheep_off","path":"sprites/spr_cheep_off/spr_cheep_off.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cheep_off",
     "tags": [],
     "resourceType": "GMSequence",

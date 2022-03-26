@@ -9,3 +9,5 @@ if(direction == 180) {
 } else if(direction == 0) {
 	image_xscale = 1;
 }
+
+depth = -400;

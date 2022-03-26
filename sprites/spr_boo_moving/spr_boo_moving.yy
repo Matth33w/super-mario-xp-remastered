@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_boo_moving","path":"sprites/spr_boo_moving/spr_boo_moving.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_boo_moving",
     "tags": [],
     "resourceType": "GMSequence",

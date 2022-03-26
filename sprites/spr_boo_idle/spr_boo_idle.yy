@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_boo_idle","path":"sprites/spr_boo_idle/spr_boo_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_boo_idle",
     "tags": [],
     "resourceType": "GMSequence",

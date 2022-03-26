@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shell_red","path":"sprites/spr_shell_red/spr_shell_red.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shell_red",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_poto_boo","path":"sprites/spr_poto_boo/spr_poto_boo.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_poto_boo",
     "tags": [],
     "resourceType": "GMSequence",

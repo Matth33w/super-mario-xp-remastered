@@ -1,8 +1,12 @@
 deathTimeout = 0;
 
-if(!audio_is_playing(stage_bgm) || !global.continuousMusic) {
+if(!audio_is_playing(stage_bgm) && !audio_is_playing(stage_bgm_loop) || !global.continuousMusic) {
 	audio_stop_all();
-	audio_play_sound(stage_bgm, 1, true);
+	
+	if(stage_bgm_loop == noone)
+		audio_play_sound(stage_bgm, 1, true);
+	else
+		audio_play_sound(stage_bgm, 1, false);
 }
 
 global.lastRoom = room;

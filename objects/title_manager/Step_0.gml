@@ -12,7 +12,7 @@ if(currentOption < 1) {
 	currentOption = 1;
 }
 
-if((global.start || global.jump) && !selected) {
+if((global.start || global.jump) && !selected && currentOption == 1) {
 	selected = true;
 	audio_play_sound(snd_mario_item_crash_1, 1, false);
 	audio_play_sound(snd_impact_generic, 1, false);
@@ -22,5 +22,16 @@ if((global.start || global.jump) && !selected) {
 if(selected)
 	timeout += delta_time / 1000000;
 	
-if(timeout > 2)
-	room_goto(opening);
+if(timeout > 2) {
+	switch(currentOption) {
+		case 1: {
+			room_goto(opening);
+			break;
+		}
+		
+		case 2: {
+			room_goto(stage_select);
+			break;
+		}
+	}
+}

@@ -16,6 +16,10 @@ if(deathTimeout > 3) {
 	}
 }
 
+if(!audio_is_playing(stage_bgm) && !audio_is_playing(stage_bgm_loop) && stage_bgm_loop != noone) {
+	audio_play_sound(stage_bgm_loop, 1, true);
+}
+
 if(stage_fadein_offset < camera_get_view_width(view_camera[0])) {
 	stage_fadein_offset += 8;
 } else {

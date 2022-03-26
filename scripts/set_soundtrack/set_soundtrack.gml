@@ -33,7 +33,7 @@ function set_soundtrack(soundtrack){
 			global.bgm_stage3_alt = bgm_stage3_alt_remaster;
 			global.bgm_stage4 = bgm_stage4_remaster;
 			global.bgm_stage5 = bgm_stage5_remaster;
-			global.bgm_stage6 = bgm_stage6_remaster;
+			global.bgm_stage6 = bgm_stage6;
 			global.bgm_stage7 = bgm_stage7_remaster;
 			global.bgm_death_jingle = bgm_death_jingle;
 			break;

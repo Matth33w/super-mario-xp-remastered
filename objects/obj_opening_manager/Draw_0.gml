@@ -1,0 +1,1 @@
+draw_sprite(spr_fade_out_stage, 0, fadeOutPos, 0);

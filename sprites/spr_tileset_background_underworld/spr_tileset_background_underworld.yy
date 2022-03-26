@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tileset_background_underworld","path":"sprites/spr_tileset_background_underworld/spr_tileset_background_underworld.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tileset_background_underworld",
     "tags": [],
     "resourceType": "GMSequence",

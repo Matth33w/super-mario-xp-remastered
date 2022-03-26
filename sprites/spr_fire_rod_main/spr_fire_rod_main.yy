@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fire_rod_main","path":"sprites/spr_fire_rod_main/spr_fire_rod_main.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fire_rod_main",
     "tags": [],
     "resourceType": "GMSequence",

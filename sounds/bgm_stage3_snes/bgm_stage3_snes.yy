@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "bgm_stage3_snes.mp3",
-  "duration": 61.4922447,
+  "duration": 57.6783676,
   "parent": {
     "name": "SNES",
     "path": "folders/Sounds/Musics/SNES.yy",

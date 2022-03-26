@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_paratroopa_green","path":"sprites/spr_paratroopa_green/spr_paratroopa_green.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_paratroopa_green",
     "tags": [],
     "resourceType": "GMSequence",

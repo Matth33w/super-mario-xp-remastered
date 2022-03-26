@@ -116,17 +116,19 @@ if(!warpState) {
 }
 
 if(onGround && global.jump && global.vertical >= 0 && !hitState && canMove && !itemCrash) {
+	image_yscale = 1;
 	currentY = -5;
 	audio_play_sound(snd_mario_jump, 1, false);
 }
 
 if(onGround && global.jump && global.vertical < 0 && !hitState && canMove && !itemCrash) {
+	image_yscale = 1;
 	currentY = -5.76;
 	audio_play_sound(snd_mario_jump, 1, false);
 	audio_play_sound(snd_mario_highjump, 1, false);
 }
 
-if(onGround && global.vertical > 0 && !isMoving && !hitState) {
+if(onGround && !global.jump && global.vertical > 0 && !isMoving && !hitState) {
 	image_yscale = 0.5;
 } else {
 	image_yscale = 1;

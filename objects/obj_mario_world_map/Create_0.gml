@@ -8,4 +8,9 @@ switch(global.currentStage) {
 		path_start(path_mario_world_map_2, 0.5, path_action_stop, true);
 		break;
 	}
+	
+	case 3: {
+		path_start(path_mario_world_map_3, 0.5, path_action_stop, true);
+		break;
+	}
 }

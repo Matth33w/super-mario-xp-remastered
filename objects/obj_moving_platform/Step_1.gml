@@ -27,3 +27,6 @@ if(!global.playerDead) {
 		}
 	}
 }
+
+if(y > room_height + 6)
+	y = -6;

@@ -30,8 +30,14 @@ if(!onCamera && instance_exists(obj_player)) {
 	}
 }
 
+if(dead && !defeated && place_meeting(x, y, obj_ground_group)) {
+	while(place_meeting(x, y, obj_ground_group)) {
+		y -= 1;
+	}
+}
+
 if(shellMoving && !defeated && !global.playerDead) {
-	if(!place_meeting(x + round(shellDirection * 2.5), y, obj_ground_group)) {
+	if(!place_meeting(x + round(shellDirection * 3), y, obj_ground_group)) {
 		x += round(shellDirection * 3);
 	} else {
 		while(!place_meeting(x + sign(shellDirection), y, obj_ground_group)) {
@@ -47,7 +53,7 @@ if(shellMoving && !defeated && !global.playerDead) {
 		instance_destroy();
 }
 
-if(defeated) {
+if(defeated && !global.playerDead) {
 	y += defeatedYSpeed;
 	defeatedYSpeed += 0.3;
 }
@@ -107,7 +113,9 @@ if(instance_exists(obj_player)) {
 		audio_play_sound(snd_shell_hit, 1, false);
 		obj_player.enemyBounce += 1;
 		check_bounce();
-		obj_player.y = y - sprite_height;
+		while(obj_player.y < y - sprite_height && !obj_player.place_meeting(x, y + 1, obj_ground_group)) {
+			obj_player.y += 1;
+		}
 		obj_player.currentY = -1.5;
 	
 		if(!shellMoving)
@@ -121,7 +129,9 @@ if(instance_exists(obj_player)) {
 		audio_play_sound(snd_shell_hit, 1, false);
 		obj_player.enemyBounce += 1;
 		check_bounce();
-		obj_player.y = y - sprite_height;
+		while(obj_player.y < y - sprite_height && !obj_player.place_meeting(x, y + 1, obj_ground_group)) {
+			obj_player.y += 1;
+		}
 		obj_player.currentY = -5;
 	
 		if(!shellMoving)
@@ -144,6 +154,8 @@ if(!defeated) {
 	var blockTouched = instance_place(x, y + 1, obj_item_block);
 	var brickTouched = instance_place(x, y + 1, obj_brick);
 	var koopa = instance_place(x, y + 1, obj_koopa);
+	
+	var paratroopaPath = instance_place(x, y + 1, obj_paratroopa_path);
 	
 	if(hammerTouched) {
 		defeated = true;
@@ -210,6 +222,17 @@ if(!defeated) {
 				sprite_index = spr_redkoopa_defeated;
 		}
 	}
+	
+	if(paratroopaPath) {	
+		if(paratroopaPath.shellMoving) {
+			defeated = true;
+			audio_play_sound(snd_enemy_defeat, 1, false);
+			if(type == "green")
+				sprite_index = spr_koopa_defeated;
+			else if(type == "red")
+				sprite_index = spr_redkoopa_defeated;
+		}
+	}
 }
 
 if(!defeated) {
@@ -235,7 +258,7 @@ if(!defeated) {
 if(onCamera && !global.playerDead && !defeated) {
 	switch(dead) {
 		case true: {
-			currentY += 0.09;
+			currentY += 0.11;
 			break;
 		}
 		

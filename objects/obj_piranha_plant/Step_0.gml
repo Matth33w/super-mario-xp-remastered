@@ -61,6 +61,8 @@ if(!dead) {
 	var crossTouched = instance_place(x, y, obj_cross);
 	var koopa = instance_place(x, y + 1, obj_koopa);
 	
+	var paratroopa = instance_place(x, y + 1, obj_paratroopa_path);
+	
 	var dir = reverse ? -1 : 1;
 	
 	if(hammerTouched) {
@@ -89,6 +91,15 @@ if(!dead) {
 	
 	if(koopa) {	
 		if(koopa.shellMoving) {
+			defeated = true;
+			audio_play_sound(snd_enemy_defeat, 1, false);
+			instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);
+			instance_destroy();
+		}
+	}
+	
+	if(paratroopa) {	
+		if(paratroopa.shellMoving) {
 			defeated = true;
 			audio_play_sound(snd_enemy_defeat, 1, false);
 			instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_castle_window","path":"sprites/spr_castle_window/spr_castle_window.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_castle_window",
     "tags": [],
     "resourceType": "GMSequence",

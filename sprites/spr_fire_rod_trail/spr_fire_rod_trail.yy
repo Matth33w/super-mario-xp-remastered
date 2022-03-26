@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fire_rod_trail","path":"sprites/spr_fire_rod_trail/spr_fire_rod_trail.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fire_rod_trail",
     "tags": [],
     "resourceType": "GMSequence",

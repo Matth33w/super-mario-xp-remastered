@@ -8,9 +8,9 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 72,
+  "bbox_right": 73,
   "bbox_top": 0,
-  "bbox_bottom": 70,
+  "bbox_bottom": 71,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0c358edb-1472-4bbc-91bb-cdc997987cef","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0c358edb-1472-4bbc-91bb-cdc997987cef","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"LayerId":{"name":"611ac098-bfe6-4e53-bd78-4659aab3bf96","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_world_map_moon","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"resourceVersion":"1.0","name":"0c358edb-1472-4bbc-91bb-cdc997987cef","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"733a2246-498b-4bdc-a48f-37ff5b801c9f","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"733a2246-498b-4bdc-a48f-37ff5b801c9f","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"LayerId":{"name":"008d35ea-a83c-442d-bf7a-147dfdc56044","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_world_map_moon","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"resourceVersion":"1.0","name":"733a2246-498b-4bdc-a48f-37ff5b801c9f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_world_map_moon","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},
@@ -41,8 +41,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5fd21e7f-c8a7-4aee-9b3f-e89a34e04c70","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0c358edb-1472-4bbc-91bb-cdc997987cef","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+            {"id":"8d3a378e-97bb-4f88-a9b9-72f362e21bce","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"733a2246-498b-4bdc-a48f-37ff5b801c9f","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -59,13 +59,13 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_world_map_moon","path":"sprites/spr_world_map_moon/spr_world_map_moon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_world_map_moon",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"611ac098-bfe6-4e53-bd78-4659aab3bf96","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"008d35ea-a83c-442d-bf7a-147dfdc56044","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

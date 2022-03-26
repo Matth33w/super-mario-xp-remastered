@@ -138,7 +138,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cheep_on","path":"sprites/spr_cheep_on/spr_cheep_on.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cheep_on",
     "tags": [],
     "resourceType": "GMSequence",

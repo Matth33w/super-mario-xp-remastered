@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "bgm_stage5_remaster.mp3",
-  "duration": 57.16092,
+  "duration": 70.968,
   "parent": {
     "name": "Remaster",
     "path": "folders/Sounds/Musics/Remaster.yy",

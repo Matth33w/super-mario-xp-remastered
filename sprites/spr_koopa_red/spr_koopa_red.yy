@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_koopa_red","path":"sprites/spr_koopa_red/spr_koopa_red.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_koopa_red",
     "tags": [],
     "resourceType": "GMSequence",
