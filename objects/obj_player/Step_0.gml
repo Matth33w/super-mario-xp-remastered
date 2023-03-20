@@ -1,9 +1,25 @@
 //Horizontal Movement
+switch(global.character) {
+	case "mario": {
+		horizontalSpeed = 1.6;
+		xMax = 1.6;
+		break;
+	}
+	
+	case "luigi": {
+		horizontalSpeed = 2;
+		xMax = 2;
+		break;
+	}
+}
+
 if(!hitState && canMove && !itemCrash)
 	currentX = horizontalSpeed * global.horizontal + platformHorizontalEffector;
 else if (itemCrash) {
 	currentX = platformHorizontalEffector;
 }
+
+show_debug_message(horizontalSpeed);
 
 //Clamp variables
 currentX = clamp(currentX, -xMax, xMax);
@@ -33,60 +49,125 @@ if(onGround) {
 	enemyBounce = false;
 }
 
-if(itemCrash && obj_player_sprite.sprite_index == spr_mario_special_1) {
-	if(obj_player_sprite.image_index > 34) {
-		itemCrash = false;
-		invincibilityState = true;
-		invincibilityTimeout = 0;
-		itemCrashTimeout = 0;
-		itemCrashCrossSFX = false;
-	}
-	
-	switch(global.playerWeapon) {
-		case "hammer": {
-			if(itemCrashThrow > 0.07) {
-				audio_play_sound(snd_weapon_1, 1, false);
-				var hammer = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_hammer_player);
-				hammer.initial_horizontal = random_range(0.6,3) * lastHorizontalDirection;
-				hammer.hammer_direction = lastHorizontalDirection;
-				itemCrashThrow = 0;
+switch(global.character) {
+	case "mario": {
+		if(itemCrash && obj_player_sprite.sprite_index == spr_mario_special_1) {
+			if(obj_player_sprite.image_index > 34) {
+				itemCrash = false;
+				invincibilityState = true;
+				invincibilityTimeout = 0;
+				itemCrashTimeout = 0;
+				itemCrashCrossSFX = false;
 			}
-			break;
+	
+			switch(global.playerWeapon) {
+				case "hammer": {
+					if(itemCrashThrow > 0.07) {
+						audio_play_sound(snd_weapon_1, 1, false);
+						var hammer = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_hammer_player);
+						hammer.initial_horizontal = random_range(0.6,3) * lastHorizontalDirection;
+						hammer.hammer_direction = lastHorizontalDirection;
+						itemCrashThrow = 0;
+					}
+					break;
+				}
+		
+				case "fire_flower": {
+					if(itemCrashThrow > 0.07) {
+						audio_play_sound(snd_weapon_1, 1, false);
+						var fireball = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_fireball);
+						fireball.fire_direction = fireball.fire_direction * lastHorizontalDirection;
+						fireball.fire_direction = lastHorizontalDirection;
+						fireball.currentY = random_range(-3, 0);
+						itemCrashThrow = 0;
+					}
+					break;
+				}
+			}
 		}
 		
-		case "fire_flower": {
-			if(itemCrashThrow > 0.07) {
-				audio_play_sound(snd_weapon_1, 1, false);
-				var fireball = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_fireball);
-				fireball.fire_direction = fireball.fire_direction * lastHorizontalDirection;
-				fireball.fire_direction = lastHorizontalDirection;
-				fireball.currentY = random_range(-3, 0);
+		if(itemCrash && obj_player_sprite.sprite_index == spr_mario_special_2) {
+			if(itemCrashTimeout > 3) {
+				itemCrash = false;
+				invincibilityState = true;
+				invincibilityTimeout = 0;
+				itemCrashTimeout = 0;
+				itemCrashCrossSFX = false;
+			}
+	
+			if(!itemCrashCrossSFX && itemCrashTimeout > 1) {
+				itemCrashCrossSFX = true;
+				audio_play_sound(snd_cross_loop, 1, false);
+			}
+	
+			if(itemCrashThrow > 0.06) {
+				var cross = instance_create_layer(irandom_range(camera_get_view_x(view_camera[0]), camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])), camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]), "Objects", obj_cross);
+				cross.specialXSpeed = random_range(-2, 2);
+				cross.specialCross = true;
 				itemCrashThrow = 0;
 			}
-			break;
 		}
-	}
-}
-
-if(itemCrash && obj_player_sprite.sprite_index == spr_mario_special_2) {
-	if(itemCrashTimeout > 3) {
-		itemCrash = false;
-		invincibilityState = true;
-		invincibilityTimeout = 0;
-		itemCrashTimeout = 0;
-		itemCrashCrossSFX = false;
+		break;
 	}
 	
-	if(!itemCrashCrossSFX && itemCrashTimeout > 1) {
-		itemCrashCrossSFX = true;
-		audio_play_sound(snd_cross_loop, 1, false);
-	}
+	case "luigi": {
+		if(itemCrash && obj_player_sprite.sprite_index == spr_luigi_special_1) {
+			if(obj_player_sprite.image_index > 34) {
+				itemCrash = false;
+				invincibilityState = true;
+				invincibilityTimeout = 0;
+				itemCrashTimeout = 0;
+				itemCrashCrossSFX = false;
+			}
 	
-	if(itemCrashThrow > 0.06) {
-		var cross = instance_create_layer(irandom_range(camera_get_view_x(view_camera[0]), camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])), camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]), "Objects", obj_cross);
-		cross.specialXSpeed = random_range(-2, 2);
-		cross.specialCross = true;
-		itemCrashThrow = 0;
+			switch(global.playerWeapon) {
+				case "hammer": {
+					if(itemCrashThrow > 0.02) {
+						audio_play_sound(snd_weapon_1, 1, false);
+						var hammer = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_hammer_player);
+						hammer.initial_horizontal = random_range(0.6,6) * lastHorizontalDirection;
+						hammer.hammer_direction = lastHorizontalDirection;
+						itemCrashThrow = 0;
+					}
+					break;
+				}
+		
+				case "fire_flower": {
+					if(itemCrashThrow > 0.02) {
+						audio_play_sound(snd_weapon_1, 1, false);
+						var fireball = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_fireball);
+						fireball.fire_direction = fireball.fire_direction * lastHorizontalDirection;
+						fireball.fire_direction = lastHorizontalDirection;
+						fireball.currentY = random_range(-3, 3);
+						itemCrashThrow = 0;
+					}
+					break;
+				}
+			}
+		}
+		
+		if(itemCrash && obj_player_sprite.sprite_index == spr_luigi_special_2) {
+			if(itemCrashTimeout > 3) {
+				itemCrash = false;
+				invincibilityState = true;
+				invincibilityTimeout = 0;
+				itemCrashTimeout = 0;
+				itemCrashCrossSFX = false;
+			}
+	
+			if(!itemCrashCrossSFX && itemCrashTimeout > 1) {
+				itemCrashCrossSFX = true;
+				audio_play_sound(snd_cross_loop, 1, false);
+			}
+	
+			if(itemCrashThrow > 0.06) {
+				var cross = instance_create_layer(irandom_range(camera_get_view_x(view_camera[0]), camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])), camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]), "Objects", obj_cross);
+				cross.specialXSpeed = random_range(-2, 2);
+				cross.specialCross = true;
+				itemCrashThrow = 0;
+			}
+		}
+		break;
 	}
 }
 
@@ -117,15 +198,36 @@ if(!warpState) {
 
 if(onGround && global.jump && global.vertical >= 0 && !hitState && canMove && !itemCrash) {
 	image_yscale = 1;
-	currentY = -5;
+	switch(global.character) {
+		case "mario": {
+			currentY = -5;
+			break;
+		}
+		
+		case "luigi": {
+			currentY = -5.5;
+			break;
+		}
+	}
 	audio_play_sound(snd_mario_jump, 1, false);
 }
 
 if(onGround && global.jump && global.vertical < 0 && !hitState && canMove && !itemCrash) {
 	image_yscale = 1;
-	currentY = -5.76;
 	audio_play_sound(snd_mario_jump, 1, false);
-	audio_play_sound(snd_mario_highjump, 1, false);
+	switch(global.character) {
+		case "mario": {
+			currentY = -5.76;
+			audio_play_sound(snd_mario_highjump, 1, false);
+			break;
+		}
+		
+		case "luigi": {
+			currentY = -6.26;
+			audio_play_sound(snd_luigi_highjump, 1, false);
+			break;
+		}
+	}
 }
 
 if(onGround && !global.jump && global.vertical > 0 && !isMoving && !hitState) {
@@ -167,14 +269,34 @@ if(global.pHealth == 0 && !playerDead) {
 	instance_create_layer(x, y, "Objects", obj_player_dead);
 	instance_destroy(obj_player_sprite);
 	instance_destroy();
-	audio_play_sound(snd_mario_dead, 1, false);
+	switch(global.character) {
+		case "mario": {
+			audio_play_sound(snd_mario_dead, 1, false);
+			break;
+		}
+		
+		case "luigi": {
+			audio_play_sound(snd_luigi_dead, 1, false);
+			break;
+		}
+	}
 }
 
 if(y > room_height + sprite_height + 64 && !playerDead && canMove) {
 	playerDead = true;
 	instance_destroy();
 	audio_stop_all();
-	audio_play_sound(snd_mario_dead, 1, false);
+	switch(global.character) {
+		case "mario": {
+			audio_play_sound(snd_mario_dead, 1, false);
+			break;
+		}
+		
+		case "luigi": {
+			audio_play_sound(snd_luigi_dead, 1, false);
+			break;
+		}
+	}
 	audio_play_sound(global.bgm_death_jingle, 1, false);
 	global.playerDead = true;
 }
@@ -212,9 +334,26 @@ if(!attacking && !hitState && !playerDead && global.attack && !obj_stage_manager
 				audio_play_sound(snd_cross_throw, 1, false);
 				global.hearts -= 2;
 				obj_player_sprite.image_index = 0;
-				var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
-				cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
-				cross.cross_direction = lastHorizontalDirection;
+				switch(global.character) {
+					case "mario": {
+						var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
+						cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
+						cross.cross_direction = lastHorizontalDirection;
+						break;
+					}
+					
+					case "luigi": {
+						var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
+						cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
+						cross.cross_direction = lastHorizontalDirection;
+						cross.additionalYSpeed = 0.6;
+						var cross2 = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
+						cross2.cross_direction = cross2.cross_direction * lastHorizontalDirection;
+						cross2.cross_direction = lastHorizontalDirection;
+						cross2.additionalYSpeed = -0.6;
+						break;
+					}
+				}
 				attacking = true;
 			}
 			break;
@@ -223,8 +362,20 @@ if(!attacking && !hitState && !playerDead && global.attack && !obj_stage_manager
 }
 
 if(instance_exists(obj_player_sprite)) {
-	if(attacking && obj_player_sprite.sprite_index == spr_mario_attack && obj_player_sprite.image_index > 3) {
-		attacking = false;
+	switch(global.character) {
+		case "mario": {
+			if(attacking && obj_player_sprite.sprite_index == spr_mario_attack && obj_player_sprite.image_index > 3) {
+				attacking = false;
+			}
+			break;
+		}
+		
+		case "luigi": {
+			if(attacking && obj_player_sprite.sprite_index == spr_luigi_attack && obj_player_sprite.image_index > 3) {
+				attacking = false;
+			}
+			break;
+		}
 	}
 }
 
@@ -287,7 +438,17 @@ if(!itemCrash && global.special && !hitState && !warpState) {
 		itemCrashTimeout = 0;
 		invincibilityState = false;
 		invincibilityTimeout = 0;
-		audio_play_sound(snd_item_crash_1, 1, false);
+		switch(global.character) {
+			case "mario": {
+				audio_play_sound(snd_mario_item_crash_1, 1, false);
+				break;
+			}
+			
+			case "luigi": {
+				audio_play_sound(snd_luigi_item_crash_1, 1, false);
+				break;
+			}
+		}
 		audio_play_sound(snd_item_crash_2, 1, false);
 		global.hearts -= 10;
 	}
@@ -298,20 +459,48 @@ if(!itemCrash && global.special && !hitState && !warpState) {
 		itemCrashTimeout = 0;
 		invincibilityState = false;
 		invincibilityTimeout = 0;
-		audio_play_sound(snd_item_crash_1, 1, false);
+		switch(global.character) {
+			case "mario": {
+				audio_play_sound(snd_mario_item_crash_1, 1, false);
+				break;
+			}
+			
+			case "luigi": {
+				audio_play_sound(snd_luigi_item_crash_1, 1, false);
+				break;
+			}
+		}
 		audio_play_sound(snd_item_crash_2, 1, false);
 		global.hearts -= 10;
 	}
 	
-	if(global.playerWeapon == "cross" && global.hearts >= 20) {
+	if(global.playerWeapon == "cross" && global.hearts >= 20 && onGround) {
 		itemCrash = true;
 		itemCrashThrow = 0;
 		itemCrashTimeout = 0;
 		invincibilityState = false;
 		invincibilityTimeout = 0;
-		audio_play_sound(snd_mario_grand_cross, 1, false);
+		switch(global.character) {
+			case "mario": {
+				audio_play_sound(snd_mario_item_crash_2, 1, false);
+				break;
+			}
+			
+			case "luigi": {
+				audio_play_sound(snd_luigi_item_crash_1, 1, false);
+				break;
+			}
+		}
 		audio_play_sound(snd_item_crash_2, 1, false);
 		global.hearts -= 20;
+		currentY = -5;
+		obj_player_sprite.image_index = 0;
+	}
+}
+
+if(itemCrash && global.playerWeapon == "cross") {
+	if(currentY > 0) {
+		currentY = 0;
 	}
 }
 

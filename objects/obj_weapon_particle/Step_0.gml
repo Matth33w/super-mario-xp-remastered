@@ -11,6 +11,13 @@ if(!global.playerDead) {
 			y -= 1;
 			break;
 		}
+		
+		case "luigi_fire": {
+			sprite_index = spr_luigi_fire_particle;
+			x += fireDirection;
+			y -= 1;
+			break;
+		}
 	
 		case "cross": {
 			sprite_index = spr_cross_particle;

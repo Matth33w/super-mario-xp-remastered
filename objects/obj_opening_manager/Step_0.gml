@@ -30,7 +30,15 @@ if(openingTimeout > 6.5 && openingTimeout < 7) {
 	obj_peach_intro.image_xscale = -1;
 }
 
-if(openingTimeout > 7) {
+if(openingTimeout > 7 && openingTimeout < 7.5) {
+	obj_peach_intro.image_xscale = 1;
+}
+
+if(openingTimeout > 7.5 && openingTimeout < 8) {
+	obj_peach_intro.image_xscale = -1;
+}
+
+if(openingTimeout > 8) {
 	obj_peach_intro.image_xscale = 1;
 }
 
@@ -76,7 +84,7 @@ if(openingTimeout > 15 && cutsceneEvents == 7) {
 	audio_play_sound(snd_poison_mushroom, 1, false);
 	obj_mario_intro.sprite_index = spr_mario_intro_2;
 	cutsceneEvents++;
-	audio_sound_gain(bgm_stage7_remaster, 0, 3000);
+	audio_sound_gain(global.bgm_stage7, 0, 3000);
 }
 
 if(openingTimeout > 17 && fadeOutPos < 384) {
@@ -89,13 +97,13 @@ if(fadeOutPos > 384) {
 
 if(openingTimeout > 18) {
 	audio_stop_all();
-	audio_sound_gain(bgm_stage7_remaster, 1, 0);
+	audio_sound_gain(global.bgm_stage7, 1, 0);
 	room_goto(stage_intro);
 }
 
 if(global.start || global.jump) {
 	audio_stop_all();
-	audio_sound_gain(bgm_stage7_remaster, 1, 0);
+	audio_sound_gain(global.bgm_stage7, 1, 0);
 	room_goto(stage_intro);
 }
 

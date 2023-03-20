@@ -5,8 +5,10 @@ if(!global.playerDead) {
 			(y + sprite_height > camera_get_view_y(view_camera[0]));
 
 	y += ySpeed;
-
-	ySpeed += dead ? 0.2 : 0;
+	
+	if(dead) {
+		ySpeed += 0.2;
+	}
 
 	image_xscale = entity_direction;
 
@@ -31,7 +33,7 @@ if(!global.playerDead) {
 		image_yscale = -1;
 
 	if(instance_exists(obj_player)) {
-		if(!obj_player.place_meeting(x, y + 1, obj_ground_group) && !dead && !place_meeting(x, y, obj_thrower) && obj_player.currentY > 0 && place_meeting(x, y - (abs(ySpeed) + abs(obj_player.currentY)), obj_player) && !place_meeting(x, y, obj_player)) {
+		if(!obj_player.onGround && !dead && !place_meeting(x, y - obj_player.currentY, obj_ground_group) && !place_meeting(x, y, obj_thrower) && obj_player.currentY > 0 && obj_player.currentY > 0 && place_meeting(x, y - obj_player.currentY, obj_player) && !place_meeting(x, y, obj_player)) {
 		
 			if(global.jumpHold && !obj_player.onGround)
 				obj_player.currentY = -5;
@@ -68,7 +70,8 @@ if(!global.playerDead) {
 	
 		if(fireTouched && !dead) {
 			audio_play_sound(snd_fireball_impact, 1, false);
-			instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+			var instance = instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+			instance.emitter = fireTouched.emitter;
 			instance_destroy(fireTouched);
 		}
 	

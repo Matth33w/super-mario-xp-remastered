@@ -5,3 +5,4 @@ canCollect = false;
 
 specialCross = false;
 specialXSpeed = 0;
+additionalYSpeed = 0;

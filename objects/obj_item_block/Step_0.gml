@@ -2,7 +2,26 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 	hit = true;
 	audio_play_sound(snd_block_hit, 1, false);
 	obj_player.blockHit = true;
-	sprite_index = spr_item_block_destroyed;
+	if(instance_exists(obj_stage_manager)) {
+		switch(obj_stage_manager.stage_theme) {
+			case "underworld": {
+				sprite_index = spr_item_block_destroyed_underworld;
+				break;
+			}
+			
+			case "castle": {
+				sprite_index = spr_item_block_destroyed_castle;
+				break;
+			}
+			
+			default: {
+				sprite_index = spr_item_block_destroyed;
+				break;
+			}
+		}	
+	} else {
+		sprite_index = spr_item_block_destroyed;
+	}
 	
 	switch(item_inside) {
 		case "small_heart": {
@@ -70,6 +89,6 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 	show_debug_message(global.hearts);
 }
 
-if(sprite_index == spr_item_block_destroyed && image_index > 7) {
+if(hit && image_index > 7) {
 	image_speed = 0;
 }

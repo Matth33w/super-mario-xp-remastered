@@ -1,7 +1,12 @@
 if(!global.playerDead) {
 	x += fireballSpeed * fire_direction;
 
-	currentY += 0.2;
+	switch(emitter) {
+		case "mario": {
+			currentY += 0.2;
+			break;
+		}
+	}
 
 	currentAngle += 20 * -fire_direction;
 
@@ -22,15 +27,27 @@ if(!global.playerDead) {
 			x += sign(fireballSpeed);
 		}
 		audio_play_sound(snd_fireball_impact, 1, false);
-		instance_create_layer(x, y, "Objects", obj_fireball_explosion);
+		var instance = instance_create_layer(x, y, "Objects", obj_fireball_explosion);
+		instance.emitter = emitter;
 		instance_destroy();
 	}
 	particleTimeout -= delta_time / 1000000;
 
 	if(particleTimeout <= 0) {
 		particleTimeout = 0.1;
-		var particle = instance_create_layer(x, y, "Objects", obj_weapon_particle);
-		particle.weapon_type = "fire";
+		switch(emitter) {
+			case "mario": {
+				var particle = instance_create_layer(x, y, "Objects", obj_weapon_particle);
+				particle.weapon_type = "fire";
+				break;
+			}
+			
+			case "luigi": {
+				var particle = instance_create_layer(x, y, "Objects", obj_weapon_particle);
+				particle.weapon_type = "luigi_fire";
+				break;
+			}
+		}
 	}
 
 	if(x < camera_get_view_x(view_camera[0]) - 30 || 

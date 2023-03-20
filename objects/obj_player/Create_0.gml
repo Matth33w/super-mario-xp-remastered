@@ -3,6 +3,7 @@ if(!instance_exists(obj_player_sprite)) {
 }
 
 horizontalSpeed = 3;
+
 pGravity = 1;
 
 currentX = 0;
@@ -59,7 +60,17 @@ if(global.initialWarping) {
 	switch(global.initialWarpDirection) {
 		case "down": {
 			obj_player.warpChangeScreen = false;
-			obj_player_sprite.sprite_index = spr_mario_jumping;
+			switch(global.character) {
+				case "mario": {
+					obj_player_sprite.sprite_index = spr_mario_jumping;
+					break;
+				}
+				
+				case "luigi": {
+					obj_player_sprite.sprite_index = spr_luigi_jumping;
+					break;
+				}
+			}
 			obj_player.warpYLimit = obj_player.y + 32;
 			global.screenToWarp = noone;
 			global.initialWarping = true;
@@ -70,7 +81,17 @@ if(global.initialWarping) {
 		
 		case "up": {
 			obj_player.warpChangeScreen = false;
-			obj_player_sprite.sprite_index = spr_mario_crouch;
+			switch(global.character) {
+				case "mario": {
+					obj_player_sprite.sprite_index = spr_mario_crouch;
+					break;
+				}
+				
+				case "luigi": {
+					obj_player_sprite.sprite_index = spr_luigi_crouch;
+					break;
+				}
+			}
 			obj_player.warpYLimit = obj_player.y - 32;
 			global.screenToWarp = noone;
 			global.initialWarping = true;

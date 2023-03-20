@@ -76,7 +76,8 @@ if(!dead) {
 	if(fireTouched) {
 		dead = true;
 		audio_play_sound(snd_enemy_defeat, 1, false);
-		instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		var instance = instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		instance.emitter = fireTouched.emitter;
 		instance_destroy(fireTouched);
 		instance_create_layer(x, y - 8 * dir, "Objects", obj_piranha_plant_defeated);
 		instance_destroy();
@@ -108,7 +109,7 @@ if(!dead) {
 	}
 }
 
-if(place_meeting(x, y, obj_player) && !dead && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash) {
+if(place_meeting(x, y, obj_player) && !dead && !obj_player.hitState && !obj_player.invincibilityState && !obj_player.itemCrash && !obj_player.warpState) {
 	mario_damage(3);
 }
 

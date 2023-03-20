@@ -1,7 +1,7 @@
 onCamera =  (x - sprite_width - 32) < (camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])) && 
-			(x + sprite_width + 32) > camera_get_view_x(view_camera[0]); /*&&
-			(y - sprite_height) < (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) &&
-			(y + sprite_height > camera_get_view_y(view_camera[0]));*/
+			(x + sprite_width + 32) > camera_get_view_x(view_camera[0]) &&
+			(y - sprite_height - 92) < (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) &&
+			(y + sprite_height + 92 > camera_get_view_y(view_camera[0]));
 
 if(entityDirection == -1 && 
    onCamera &&
@@ -113,7 +113,7 @@ if(instance_exists(obj_player)) {
 		audio_play_sound(snd_shell_hit, 1, false);
 		obj_player.enemyBounce += 1;
 		check_bounce();
-		while(obj_player.y < y - sprite_height && !obj_player.place_meeting(x, y + 1, obj_ground_group)) {
+		while(obj_player.y < y - sprite_height && !obj_player.onGround) {
 			obj_player.y += 1;
 		}
 		obj_player.currentY = -1.5;
@@ -129,7 +129,7 @@ if(instance_exists(obj_player)) {
 		audio_play_sound(snd_shell_hit, 1, false);
 		obj_player.enemyBounce += 1;
 		check_bounce();
-		while(obj_player.y < y - sprite_height && !obj_player.place_meeting(x, y + 1, obj_ground_group)) {
+		while(obj_player.y < y - sprite_height && !obj_player.onGround) {
 			obj_player.y += 1;
 		}
 		obj_player.currentY = -5;
@@ -175,7 +175,8 @@ if(!defeated) {
 			sprite_index = spr_koopa_defeated;
 		else if(type == "red")
 			sprite_index = spr_redkoopa_defeated;
-		instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		var instance = instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		instance.emitter = fireTouched.emitter;
 		instance_destroy(fireTouched);
 	}
 	

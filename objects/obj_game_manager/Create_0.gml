@@ -8,7 +8,7 @@ global.whiteFont1 = font_add_sprite_ext(spr_font_stage_select, "ABCDEFGHIJKLMNOP
 global.pause = false;
 
 global.playerDead = false;
-global.debug = true;
+global.debug = false;
 
 global.currentStage = 1;
 
@@ -25,6 +25,10 @@ global.initialWarpDirection = "none";
 global.screenToWarp = noone;
 
 global.warpsEntered = [];
+
+global.character = "luigi";
+
+global.language = "eng";
 
 set_soundtrack("remastered");
 

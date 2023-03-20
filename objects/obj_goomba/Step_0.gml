@@ -1,8 +1,7 @@
 onCamera =  (x - sprite_width) < (camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])) && 
-			(x + sprite_width) > camera_get_view_x(view_camera[0]); /*&&
-			(y - sprite_height) < (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) &&
-			(y + sprite_height > camera_get_view_y(view_camera[0]));*/
-
+			(x + sprite_width) > camera_get_view_x(view_camera[0]) &&
+			(y - sprite_height - 92) < (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) &&
+			(y + sprite_height + 92 > camera_get_view_y(view_camera[0]));
 if(entityDirection == -1 && 
    onCamera &&
    !dead &&
@@ -72,6 +71,7 @@ if(!defeated && !dead) {
 	var blockTouched = instance_place(x, y + 1, obj_item_block);
 	var brickTouched = instance_place(x, y + 1, obj_brick);
 	
+	var goomba = instance_place(x, y + 6, obj_goomba);
 	var koopa = instance_place(x, y + 1, obj_koopa);
 	var paratroopa = instance_place(x, y + 1, obj_paratroopa_path);
 	
@@ -90,7 +90,8 @@ if(!defeated && !dead) {
 		defeated = true;
 		audio_play_sound(snd_enemy_defeat, 1, false);
 		sprite_index = spr_goomba_defeated;
-		instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		var instance = instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+		instance.emitter = fireTouched.emitter;
 		instance_destroy(fireTouched);
 		if(has_undead) {
 			var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
@@ -129,6 +130,13 @@ if(!defeated && !dead) {
 				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
 				instance.skin = "goomba";
 			}
+		}
+	}
+	
+	if(goomba) {
+		if(!goomba.dead && goomba.currentY >= 1) {
+			x += 8;
+			goomba.x -= 8;
 		}
 	}
 	

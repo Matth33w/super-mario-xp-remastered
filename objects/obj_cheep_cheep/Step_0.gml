@@ -48,7 +48,8 @@ if(!global.playerDead) {
 			dead = true
 			audio_play_sound(snd_enemy_defeat, 1, false);
 			ySpeed = -2;
-			instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+			var instance = instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
+			instance.emitter = fireTouched.emitter;
 			instance_destroy(fireTouched);
 		}
 	

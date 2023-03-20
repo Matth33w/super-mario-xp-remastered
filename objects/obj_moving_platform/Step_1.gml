@@ -1,4 +1,4 @@
-if(!global.playerDead) {
+if(!global.playerDead && active) {
 	switch(orientation) {
 		case "horizontal": {
 			if(!place_meeting(x + platformSpeed * plat_direction, y, obj_moving_platform_switch)) {
@@ -28,5 +28,11 @@ if(!global.playerDead) {
 	}
 }
 
-if(y > room_height + 6)
+if(instance_exists(obj_player)) {
+	if(place_meeting(x, y - 1, obj_player) && !active) {
+		active = true;
+	}
+}
+
+if(y > room_height + 6 && has_teleport)
 	y = -6;

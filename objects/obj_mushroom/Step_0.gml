@@ -14,7 +14,17 @@ if(place_meeting(x, y, obj_player) && !appearing) {
 		}
 		
 		case "poisoned": {
-			audio_play_sound(snd_poison_mushroom, 1, false);
+			switch(global.character) {
+				case "mario": {
+					audio_play_sound(snd_poison_mushroom, 1, false);
+					break;
+				}
+				
+				case "luigi": {
+					audio_play_sound(snd_luigi_poison_mushroom, 1, false);
+					break;
+				}
+			}
 			global.pHealth -= 4;
 			obj_player.hitState = true;
 			instance_destroy();

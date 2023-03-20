@@ -4,7 +4,17 @@ if(place_meeting(x, y, obj_player) && !obj_player.warpState && initial_direction
 	obj_player.warpChangeScreen = true;
 	obj_player.warpDirection = "down";
 	global.initialWarpDirection = endpoint_direction;
-	obj_player_sprite.sprite_index = spr_mario_crouch;
+	switch(global.character) {
+		case "mario": {
+			obj_player_sprite.sprite_index = spr_mario_crouch;
+			break;
+		}
+		
+		case "luigi": {
+			obj_player_sprite.sprite_index = spr_luigi_crouch;
+			break;
+		}
+	}
 	obj_player.x = x;
 	obj_player.y = y;
 	obj_player.warpYLimit = obj_player.y + 32;

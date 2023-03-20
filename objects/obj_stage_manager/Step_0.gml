@@ -16,7 +16,7 @@ if(deathTimeout > 3) {
 	}
 }
 
-if(!audio_is_playing(stage_bgm) && !audio_is_playing(stage_bgm_loop) && stage_bgm_loop != noone) {
+if(!audio_is_playing(stage_bgm) && !audio_is_playing(stage_bgm_loop) && stage_bgm_loop != noone && global.pHealth > 0 && !global.playerDead) {
 	audio_play_sound(stage_bgm_loop, 1, true);
 }
 

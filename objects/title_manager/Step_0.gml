@@ -6,13 +6,12 @@ if(global.vertical != 0 && !cursorMoved && !selected) {
 	cursorMoved = false;
 }
 
-if(currentOption < 1) {
+if(currentOption < 1)
 	currentOption = 3;
-} else if(currentOption > 3) {
+else if(currentOption > 3)
 	currentOption = 1;
-}
 
-if((global.start || global.jump) && !selected && currentOption == 1) {
+if((global.start || global.jump) && !selected && (currentOption == 1 || currentOption == 3)) {
 	selected = true;
 	audio_play_sound(snd_mario_item_crash_1, 1, false);
 	audio_play_sound(snd_impact_generic, 1, false);
@@ -31,6 +30,11 @@ if(timeout > 2) {
 		
 		case 2: {
 			room_goto(stage_select);
+			break;
+		}
+		
+		case 3: {
+			room_goto(options_screen);
 			break;
 		}
 	}

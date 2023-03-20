@@ -14,4 +14,16 @@ if(canMove && ySpeed > 2) {
 	image_speed = 0;
 }
 
+switch(global.character) {
+	case "mario": {
+		sprite_index = spr_mario_death;
+		break;
+	}
+	
+	case "luigi": {
+		sprite_index = spr_luigi_death;
+		break;
+	}
+}
+
 depth = -20;

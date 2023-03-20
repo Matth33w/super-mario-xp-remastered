@@ -8,6 +8,7 @@ if(!global.playerDead) {
 
 	if(!specialCross) {
 		x += crossSpeed * cross_direction;
+		y += additionalYSpeed;
 	} else {
 	
 	}
