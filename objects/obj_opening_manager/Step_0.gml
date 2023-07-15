@@ -52,7 +52,17 @@ if(openingTimeout > 7 && cutsceneEvents == 3) {
 }
 
 if(openingTimeout > 9 && cutsceneEvents == 4) {
-	audio_play_sound(snd_mario_item_crash_1, 1, false);
+	switch(global.character) {
+		case "mario": {
+			audio_play_sound(snd_mario_item_crash_1, 1, false);
+			break;
+		}
+		
+		case "luigi": {
+			audio_play_sound(snd_luigi_item_crash_1, 1, false);
+			break;
+		}
+	}
 	cutsceneEvents++;
 }
 
@@ -75,14 +85,45 @@ if(openingTimeout > 14) {
 
 if(openingTimeout > 14 && obj_mario_intro.x < 90 && openingTimeout < 15) {
 	obj_mario_intro.x += 3;
-	obj_mario_intro.sprite_index = spr_mario_intro_1;
+	switch(global.character) {
+		case "mario": {
+			obj_mario_intro.sprite_index = spr_mario_intro_1;
+			break;
+		}
+		
+		case "luigi": {
+			obj_mario_intro.sprite_index = spr_luigi_intro_1;
+			break;
+		}
+	}
 } else if(openingTimeout > 14 && obj_mario_intro.x >= 90 && openingTimeout < 15) {
-	obj_mario_intro.sprite_index = spr_mario_idle;
+	switch(global.character) {
+		case "mario": {
+			obj_mario_intro.sprite_index = spr_mario_idle;
+			break;
+		}
+		
+		case "luigi": {
+			obj_mario_intro.sprite_index = spr_luigi_idle;
+			break;
+		}
+	}
 }
 
 if(openingTimeout > 15 && cutsceneEvents == 7) {
-	audio_play_sound(snd_poison_mushroom, 1, false);
-	obj_mario_intro.sprite_index = spr_mario_intro_2;
+	switch(global.character) {
+		case "mario": {
+			audio_play_sound(snd_poison_mushroom, 1, false);
+			obj_mario_intro.sprite_index = spr_mario_intro_2;
+			break;
+		}
+		
+		case "luigi": {
+			audio_play_sound(snd_luigi_poison_mushroom, 1, false);
+			obj_mario_intro.sprite_index = spr_luigi_intro_2;
+			break;
+		}
+	}
 	cutsceneEvents++;
 	audio_sound_gain(global.bgm_stage7, 0, 3000);
 }

@@ -122,7 +122,7 @@ switch(global.character) {
 	
 			switch(global.playerWeapon) {
 				case "hammer": {
-					if(itemCrashThrow > 0.02) {
+					if(itemCrashThrow > 0.05) {
 						audio_play_sound(snd_weapon_1, 1, false);
 						var hammer = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_hammer_player);
 						hammer.initial_horizontal = random_range(0.6,6) * lastHorizontalDirection;
@@ -133,7 +133,7 @@ switch(global.character) {
 				}
 		
 				case "fire_flower": {
-					if(itemCrashThrow > 0.02) {
+					if(itemCrashThrow > 0.05) {
 						audio_play_sound(snd_weapon_1, 1, false);
 						var fireball = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_fireball);
 						fireball.fire_direction = fireball.fire_direction * lastHorizontalDirection;

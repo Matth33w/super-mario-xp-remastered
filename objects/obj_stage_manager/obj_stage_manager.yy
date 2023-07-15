@@ -41,6 +41,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"cheep_cheep_water_sfx","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"cheep_cheep_timeout","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"2.5","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"stage_theme","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"overworld","varType":2,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"redirect_after_death","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"noone","varType":5,},
   ],
   "solid": false,
   "spriteId": null,

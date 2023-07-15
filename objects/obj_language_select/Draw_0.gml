@@ -1,6 +1,6 @@
 switch(global.language) {
 	case "eng": {
-		headerText = "CHOOSE YOUR LANGUAGEM";
+		headerText = "CHOOSE YOUR LANGUAGE";
 		bodyText = "ENGLISH";
 		break;
 	}

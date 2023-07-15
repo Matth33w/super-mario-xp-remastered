@@ -13,7 +13,17 @@ else if(currentOption > 3)
 
 if((global.start || global.jump) && !selected && (currentOption == 1 || currentOption == 3)) {
 	selected = true;
-	audio_play_sound(snd_mario_item_crash_1, 1, false);
+	switch(global.character) {
+		case "mario": {
+			audio_play_sound(snd_mario_item_crash_1, 1, false);
+			break;
+		}
+		
+		case "luigi": {
+			audio_play_sound(snd_luigi_item_crash_1, 1, false);
+			break;
+		}
+	}
 	audio_play_sound(snd_impact_generic, 1, false);
 	image_speed = 2;
 }

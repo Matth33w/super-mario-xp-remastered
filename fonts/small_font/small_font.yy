@@ -265,6 +265,7 @@
   "italic": false,
   "kerningPairs": [],
   "last": 0,
+  "lineHeight": 0,
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
@@ -326,6 +327,7 @@
   ],
   "regenerateBitmap": false,
   "sampleText": "[PORTUGUÊS BRASIL]\r\nSTAGE-1 Entrada do Castelo\r\nSTAGE-2 Torre de Observação\r\nSTAGE-3 Entrada ao Subterrâneo\r\nSTAGE-4 Fontes Subterrâneas\r\nSTAGE-5 Construção Principal\r\nSTAGE-6 Torre do Relógio\r\nSTAGE-7 Topo do Castelo\r\nSTAGE-8 Boss Rush\r\n\r\n[ENGLISH]\r\nSTAGE-1 Castle Courtyard\r\nSTAGE-2 Observation Tower\r\nSTAGE-3 Underground Entrance\r\nSTAGE-4 Underground Water Veins\r\nSTAGE-5 Castle Main Building\r\nSTAGE-6 Clock Tower\r\nSTAGE-7 Top of the Castle\r\nSTAGE-8 Boss Rush\r\n\r\n[JAPANESE]\r\nSTAGE-1 恶魔城入口\r\nSTAGE-2 監視塔\r\nSTAGE-3 空中庭園~礼拜堂\r\nSTAGE-4 地下水脈\r\nSTAGE-5 悪魔城本館\r\nSTAGE-6 時計塔\r\nSTAGE-7 悪魔城最上部\r\nSTAGE-8 闘技場\r\n",
+  "sdfSpread": 8,
   "size": 12.0,
   "styleName": "Regular",
   "textureGroupId": {
@@ -333,4 +335,5 @@
     "path": "texturegroups/Default",
   },
   "TTFName": "",
+  "usesSDF": false,
 }

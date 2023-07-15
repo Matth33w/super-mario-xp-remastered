@@ -49,6 +49,19 @@ switch(global.language) {
 			}
 		};
 		draw_set_color(arrCurrent == 3 ? c_yellow : c_white);
+		draw_text(16, 8 * 19, "Smooth transitions:");
+		switch(global.smoothTransitions) {
+			case true: {
+				draw_text(16, 8 * 21, "ACTIVATED");
+				break;
+			}
+			
+			case false: {
+				draw_text(16, 8 * 21, "DEACTIVATED");
+				break;
+			}
+		};
+		draw_set_color(arrCurrent == 4 ? c_yellow : c_white);
 		draw_text(16, room_height - 8 * 2, "Exit");
 		break;
 	}
@@ -103,6 +116,19 @@ switch(global.language) {
 			}
 		};
 		draw_set_color(arrCurrent == 3 ? c_yellow : c_white);
+		draw_text(16, 8 * 19, "Transições suaves:");
+		switch(global.smoothTransitions) {
+			case true: {
+				draw_text(16, 8 * 21, "ATIVADO");
+				break;
+			}
+			
+			case false: {
+				draw_text(16, 8 * 21, "DESATIVADO");
+				break;
+			}
+		};
+		draw_set_color(arrCurrent == 4 ? c_yellow : c_white);
 		draw_text(16, room_height - 8 * 2, "Sair");
 		break;
 	}
@@ -157,6 +183,19 @@ switch(global.language) {
 			}
 		};
 		draw_set_color(arrCurrent == 3 ? c_yellow : c_white);
+		draw_text(16, 8 * 19, "Smooth transitions:");
+		switch(global.smoothTransitions) {
+			case true: {
+				draw_text(16, 8 * 21, "ACTIVATED");
+				break;
+			}
+			
+			case false: {
+				draw_text(16, 8 * 21, "DEACTIVATED");
+				break;
+			}
+		};
+		draw_set_color(arrCurrent == 4 ? c_yellow : c_white);
 		draw_text(16, room_height - 8 * 2, "Exit");
 		break;
 	}

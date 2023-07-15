@@ -9,7 +9,7 @@ if(!audio_is_playing(stage_bgm) && !audio_is_playing(stage_bgm_loop) || !global.
 		audio_play_sound(stage_bgm, 1, false);
 }
 
-global.lastRoom = room;
+global.lastRoom = redirect_after_death == noone ? room : redirect_after_death;
 
 stage_fadeout = false;
 

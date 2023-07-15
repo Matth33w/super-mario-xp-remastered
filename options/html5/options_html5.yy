@@ -16,7 +16,7 @@
   "option_html5_icon": "fav.ico",
   "option_html5_index": "use_default",
   "option_html5_interpolate_pixels": false,
-  "option_html5_jsprepend": "",
+  "option_html5_jsprepend": "/* \r\nGameMaker Studio 2\r\nHTML Enhancer\r\n\r\nPaste this code at \r\n\"Game Options - HTML5 - General - Advanced - Prepend output.js with\"\r\nand it should work :)\r\n*/\r\n\r\nconst canvasElem = document.querySelector(\"canvas\");\r\nconst bodyElem = document.querySelector(\"body\");\r\ncanvasElem.style.imageRendering = \"pixelated\";\r\nbodyElem.style.backgroundColor = \"#000000\";",
   "option_html5_loadingbar": "Use Default",
   "option_html5_localrunalert": true,
   "option_html5_outputdebugtoconsole": true,

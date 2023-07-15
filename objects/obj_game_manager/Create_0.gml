@@ -8,7 +8,7 @@ global.whiteFont1 = font_add_sprite_ext(spr_font_stage_select, "ABCDEFGHIJKLMNOP
 global.pause = false;
 
 global.playerDead = false;
-global.debug = false;
+global.debug = true;
 
 global.currentStage = 1;
 
@@ -26,7 +26,7 @@ global.screenToWarp = noone;
 
 global.warpsEntered = [];
 
-global.character = "luigi";
+global.character = "mario";
 
 global.language = "eng";
 

@@ -42,6 +42,16 @@ if(!pressedOption && global.horizontal != 0) {
 			arrParallaxCurrent = clamp(arrParallaxCurrent + global.horizontal, 0, array_length(parallaxActivated) - 1);
 			break;
 		}
+		
+		case 3: {
+			if(arrTransitionCurrent == array_length(smoothTransitionsActivated) - 1 && global.horizontal == 1) {
+				audio_stop_sound(snd_cursor_move);
+			} else if(arrTransitionCurrent == 0 && global.horizontal == -1) {
+				audio_stop_sound(snd_cursor_move);
+			}
+			arrTransitionCurrent = clamp(arrTransitionCurrent + global.horizontal, 0, array_length(smoothTransitionsActivated) - 1);
+			break;
+		}
 	}
 }
 
@@ -58,6 +68,11 @@ switch(arrCurrent) {
 	
 	case 2: {
 		global.parallaxScrolling = parallaxActivated[arrParallaxCurrent];
+		break;
+	}
+	
+	case 3: {
+		global.smoothTransitions = smoothTransitionsActivated[arrTransitionCurrent];
 		break;
 	}
 }

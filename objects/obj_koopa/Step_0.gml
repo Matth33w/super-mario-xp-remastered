@@ -151,8 +151,8 @@ if(!defeated) {
 	var fireTouched = instance_place(x, y, obj_fireball);
 	var crossTouched = instance_place(x, y, obj_cross);
 	
-	var blockTouched = instance_place(x, y + 1, obj_item_block);
-	var brickTouched = instance_place(x, y + 1, obj_brick);
+	var blockTouched = instance_place(x, y, obj_block_hit_detector);
+	var brickTouched = instance_place(x, y, obj_block_hit_detector);
 	var koopa = instance_place(x, y + 1, obj_koopa);
 	
 	var paratroopaPath = instance_place(x, y + 1, obj_paratroopa_path);
@@ -190,27 +190,25 @@ if(!defeated) {
 	}
 	
 	if(blockTouched) {
-		if(blockTouched.sprite_index == spr_item_block_destroyed && blockTouched.image_speed != 0) {
-			dead = true;
-			audio_play_sound(snd_enemy_defeat, 1, false);
-			if(type == "green")
-				sprite_index = spr_shell_green;
-			else if(type == "red")
-				sprite_index = spr_shell_red;
-			currentY = -2;
-		}
+		dead = true;
+		audio_stop_sound(snd_enemy_defeat);
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		if(type == "green")
+			sprite_index = spr_shell_green;
+		else if(type == "red")
+			sprite_index = spr_shell_red;
+		currentY = -2;
 	}
 	
 	if(brickTouched) {
-		if(brickTouched.sprite_index == spr_brick_destroyed && brickTouched.image_speed != 0) {
-			dead = true;
-			audio_play_sound(snd_enemy_defeat, 1, false);
-			if(type == "green")
-				sprite_index = spr_shell_green;
-			else if(type == "red")
-				sprite_index = spr_shell_red;
-			currentY = -2;
-		}
+		dead = true;
+		audio_stop_sound(snd_enemy_defeat);
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		if(type == "green")
+			sprite_index = spr_shell_green;
+		else if(type == "red")
+			sprite_index = spr_shell_red;
+		currentY = -2;
 	}
 	
 	if(koopa) {	

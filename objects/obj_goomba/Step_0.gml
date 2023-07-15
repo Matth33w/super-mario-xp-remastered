@@ -3,7 +3,7 @@ onCamera =  (x - sprite_width) < (camera_get_view_x(view_camera[0]) + camera_get
 			(y - sprite_height - 92) < (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) &&
 			(y + sprite_height + 92 > camera_get_view_y(view_camera[0]));
 if(entityDirection == -1 && 
-   onCamera &&
+   (onCamera || !inactive_offscreen) &&
    !dead &&
    !defeated &&
    !global.playerDead
@@ -12,7 +12,7 @@ if(entityDirection == -1 &&
 	x += currentX;
 } else if(
    entityDirection == 1 && 
-   onCamera &&
+   (onCamera || !inactive_offscreen) &&
    !dead &&
    !defeated &&
    !global.playerDead
@@ -27,6 +27,10 @@ if(!onCamera && instance_exists(obj_player)) {
 	} else if (x > obj_player.x) {
 		entityDirection = -1;
 	}
+}
+
+if(defeated && y > room_height + sprite_height) {
+	instance_destroy();
 }
 
 if(place_meeting(x, y - 1, obj_player) && !dead && !defeated && !global.jumpHold && !obj_player.onGround && obj_player.y < (y - sprite_height / 2) && obj_player.currentY > 0) {
@@ -68,8 +72,8 @@ if(!defeated && !dead) {
 	var fireTouched = instance_place(x, y, obj_fireball);
 	var crossTouched = instance_place(x, y, obj_cross);
 	
-	var blockTouched = instance_place(x, y + 1, obj_item_block);
-	var brickTouched = instance_place(x, y + 1, obj_brick);
+	var blockTouched = instance_place(x, y, obj_block_hit_detector);
+	var brickTouched = instance_place(x, y, obj_block_hit_detector);
 	
 	var goomba = instance_place(x, y + 6, obj_goomba);
 	var koopa = instance_place(x, y + 1, obj_koopa);
@@ -110,26 +114,24 @@ if(!defeated && !dead) {
 	}
 	
 	if(blockTouched) {
-		if(blockTouched.sprite_index == spr_item_block_destroyed && blockTouched.image_speed != 0) {
-			defeated = true;
-			audio_play_sound(snd_enemy_defeat, 1, false);
-			sprite_index = spr_goomba_defeated;
-			if(has_undead) {
-				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
-				instance.skin = "goomba";
-			}
+		defeated = true;
+		audio_stop_sound(snd_enemy_defeat);
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		sprite_index = spr_goomba_defeated;
+		if(has_undead) {
+			var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+			instance.skin = "goomba";
 		}
-	}
+}
 	
 	if(brickTouched) {
-		if(brickTouched.sprite_index == spr_brick_destroyed && brickTouched.image_speed != 0) {
-			defeated = true;
-			audio_play_sound(snd_enemy_defeat, 1, false);
-			sprite_index = spr_goomba_defeated;
-			if(has_undead) {
-				var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
-				instance.skin = "goomba";
-			}
+		defeated = true;
+		audio_stop_sound(snd_enemy_defeat);
+		audio_play_sound(snd_enemy_defeat, 1, false);
+		sprite_index = spr_goomba_defeated;
+		if(has_undead) {
+			var instance = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_boo);
+			instance.skin = "goomba";
 		}
 	}
 	
@@ -179,7 +181,7 @@ if(!defeated) {
 		}
 	}
 }
-if(onCamera && !global.playerDead && !defeated) {
+if((onCamera || !inactive_offscreen) && !global.playerDead && !defeated) {
 	currentY += 0.3;
 	
 	if(!place_meeting(x, y + currentY, obj_ground_group)) {
