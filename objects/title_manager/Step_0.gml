@@ -11,7 +11,11 @@ if(currentOption < 1)
 else if(currentOption > 3)
 	currentOption = 1;
 
-if((global.start || global.jump) && !selected && (currentOption == 1 || currentOption == 3)) {
+if((global.start || global.jump) && !selected) {
+	if(currentOption == 2 && stageCount < 2) {
+		return;
+	}
+	
 	selected = true;
 	switch(global.character) {
 		case "mario": {

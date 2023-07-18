@@ -10,9 +10,17 @@ if(currentOption == 1) {
 }
 
 if(currentOption == 2) {
-	draw_sprite_ext(spr_stage_select, 0, (room_width / 2), 190, 1, 1, 0, c_red, 1);
+	if(stageCount > 1) {
+		draw_sprite_ext(spr_stage_select, 0, (room_width / 2), 190, 1, 1, 0, c_yellow, 1);
+	} else {
+		draw_sprite_ext(spr_stage_select, 0, (room_width / 2), 190, 1, 1, 0, c_red, 1);
+	}
 } else {
-	draw_sprite_ext(spr_stage_select, 0, (room_width / 2), 190, 1, 1, 0, c_gray, 1);
+	if(stageCount > 1) {
+		draw_sprite_ext(spr_stage_select, 0, (room_width / 2), 190, 1, 1, 0, c_white, 1);
+	} else {
+		draw_sprite_ext(spr_stage_select, 0, (room_width / 2), 190, 1, 1, 0, c_gray, 1);
+	}
 }
 
 if(currentOption == 3) {

@@ -5,5 +5,5 @@ if(demoTimeout > 1) {
 }
 
 if(demoTimeout > 3) {
-	room_goto(language_select);
+	room_goto(stage_4_4);
 }

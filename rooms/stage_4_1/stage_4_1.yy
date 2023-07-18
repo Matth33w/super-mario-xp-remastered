@@ -27,6 +27,8 @@
     {"name":"inst_74741672","path":"rooms/stage_4_1/stage_4_1.yy",},
     {"name":"inst_2E8E7C33","path":"rooms/stage_4_1/stage_4_1.yy",},
     {"name":"inst_3D51601B","path":"rooms/stage_4_1/stage_4_1.yy",},
+    {"name":"inst_198751D1","path":"rooms/stage_4_1/stage_4_1.yy",},
+    {"name":"inst_28B55DCB","path":"rooms/stage_4_1/stage_4_1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -61,6 +63,8 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_warp_pipe_trigger","path":"objects/obj_warp_pipe_trigger/obj_warp_pipe_trigger.yy",},"propertyId":{"name":"screen_warp","path":"objects/obj_warp_pipe_trigger/obj_warp_pipe_trigger.yy",},"value":"stage_4_2",},
           ],"rotation":0.0,"scaleX":0.25,"scaleY":0.25,"x":560.0,"y":176.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3D51601B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":3.0,"x":-16.0,"y":144.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_198751D1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":528.0,"y":208.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_28B55DCB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":432.0,"y":144.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":15,"SerialiseWidth":40,"TileCompressedData":[
 -82,32,4,0,21,0,21,-7,0,5,21,0,21,0,0,-4,32,4,0,21,0,21,-8,0,4,21,0,21,0,-4,32,4,0,21,0,21,-7,0,5,21,

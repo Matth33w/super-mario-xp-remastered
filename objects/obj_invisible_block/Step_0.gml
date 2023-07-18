@@ -5,11 +5,7 @@ if(instance_exists(obj_player)) {
 	  )
 	{
 		obj_player.y = y + obj_player.sprite_height + 8;
-		
-		if(obj_player.x < x - sprite_width / 2)
-			obj_player.x = x - sprite_width / 2;
-		else if(obj_player.x > x + sprite_width / 2)
-			obj_player.x = x + sprite_width / 2;
+		obj_player.currentX = 0;
 			
 		var block = instance_create_layer(x, y, "Objects", obj_item_block);
 		block.item_inside = item_inside;

@@ -9,3 +9,5 @@ image_speed = 0.2;
 menu_cursor = spr_title_cursor;
 
 audio_stop_all();
+
+stageCount = load_property("currentStage");

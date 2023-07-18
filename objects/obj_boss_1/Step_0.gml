@@ -274,8 +274,9 @@ if(!global.playerDead && instance_exists(obj_player)) {
 		
 		if(defeatedTimeout > 5.5) {
 			audio_sound_gain(global.bgm_boss_loop, 1, 0);
-			global.currentStage = 1;
-			room_goto(thanks_screen);
+			global.currentStage = 2;
+			level_finished(global.currentStage, global.playerWeapon, global.hearts, global.pHealth);
+			room_goto(stage_intro);
 		}
 	}
 } else {

@@ -3,8 +3,8 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 	audio_play_sound(snd_block_hit, 1, false);
 	obj_player.blockHit = true;
 	var hitDetector = instance_create_layer(x, y - sprite_height / 2, "Objects", obj_block_hit_detector);
-	hitDetector.image_xscale = 0.5;
-	hitDetector.image_yscale = 0.5;
+	hitDetector.image_xscale = 0.75;
+	hitDetector.image_yscale = 0.75;
 	if(instance_exists(obj_stage_manager)) {
 		switch(obj_stage_manager.stage_theme) {
 			case "underworld": {

@@ -126,6 +126,11 @@
     {"name":"inst_68D87D95","path":"rooms/stage_7_1/stage_7_1.yy",},
     {"name":"inst_6EAFF348","path":"rooms/stage_7_1/stage_7_1.yy",},
     {"name":"inst_3BF2B350","path":"rooms/stage_7_1/stage_7_1.yy",},
+    {"name":"inst_2DDC7241","path":"rooms/stage_7_1/stage_7_1.yy",},
+    {"name":"inst_3FFE2260","path":"rooms/stage_7_1/stage_7_1.yy",},
+    {"name":"inst_274767C4","path":"rooms/stage_7_1/stage_7_1.yy",},
+    {"name":"inst_5C5F68CA","path":"rooms/stage_7_1/stage_7_1.yy",},
+    {"name":"inst_7B3273B1","path":"rooms/stage_7_1/stage_7_1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -284,6 +289,17 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3BF2B350","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"propertyId":{"name":"item_inside","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"value":"poison_mushroom",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":488.0,"y":88.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2DDC7241","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":304.0,"y":144.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3FFE2260","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":144.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_274767C4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"propertyId":{"name":"item_inside","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"value":"poison_mushroom",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":312.0,"y":88.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5C5F68CA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"propertyId":{"name":"item_inside","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"value":"poison_mushroom",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":168.0,"y":88.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7B3273B1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"propertyId":{"name":"item_inside","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"value":"poison_mushroom",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_1","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":15,"SerialiseWidth":100,"TileCompressedData":[
 -10,32,-30,0,-50,-2147483648,-20,32,-30,0,-50,-2147483648,-10,32,-40,0,-56,-2147483648,1,0,-3,-2147483648,-40,0,-60,-2147483648,-40,0,-60,-2147483648,-40,0,-60,-2147483648,-40,0,-60,-2147483648,-40,0,-55,-2147483648,-5,0,-4,32,-36,0,-56,-2147483648,-8,32,-36,0,-45,-2147483648,-11,0,-7,32,-37,0,-57,-2147483648,-5,32,-38,0,-58,-2147483648,-4,32,-38,0,-58,-2147483648,-4,32,-38,0,-58,-2147483648,-4,32,-38,0,-58,-2147483648,-2,32,],"TileDataFormat":1,},"tilesetId":{"name":"tileset_main","path":"tilesets/tileset_main/tileset_main.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

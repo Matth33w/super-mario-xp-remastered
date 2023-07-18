@@ -1,4 +1,7 @@
 if(global.start || global.jump) {
+	global.hearts = load_property("hearts");
+	global.playerWeapon = load_property("weapon");
+	global.pHealth = real(string_digits(load_property("health")));
 	room_goto(stage_intro);
 }
 
