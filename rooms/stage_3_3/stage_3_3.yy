@@ -85,6 +85,7 @@
     {"name":"inst_235A838F","path":"rooms/stage_3_3/stage_3_3.yy",},
     {"name":"inst_20EE5E67","path":"rooms/stage_3_3/stage_3_3.yy",},
     {"name":"inst_88D144D","path":"rooms/stage_3_3/stage_3_3.yy",},
+    {"name":"inst_351D84F1","path":"rooms/stage_3_3/stage_3_3.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -212,6 +213,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_warp_pipe_trigger","path":"objects/obj_warp_pipe_trigger/obj_warp_pipe_trigger.yy",},"propertyId":{"name":"enterOnce","path":"objects/obj_warp_pipe_trigger/obj_warp_pipe_trigger.yy",},"value":"True",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_warp_pipe_trigger","path":"objects/obj_warp_pipe_trigger/obj_warp_pipe_trigger.yy",},"propertyId":{"name":"warp_id","path":"objects/obj_warp_pipe_trigger/obj_warp_pipe_trigger.yy",},"value":"4938",},
           ],"rotation":0.0,"scaleX":0.25,"scaleY":0.1875,"x":1632.0,"y":131.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_351D84F1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":192.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_2","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":15,"SerialiseWidth":200,"TileCompressedData":[
 -101,-2147483648,2,24,25,-10,-2147483648,2,24,25,-186,-2147483648,2,24,25,-10,-2147483648,2,24,25,-186,-2147483648,2,24,25,-10,-2147483648,2,24,25,-186,-2147483648,2,24,25,-10,-2147483648,2,40,41,-186,-2147483648,2,24,25,-198,-2147483648,2,24,25,-198,-2147483648,2,24,25,-198,-2147483648,2,40,41,-499,-2147483648,2,8,9,-198,-2147483648,2,24,25,-198,-2147483648,2,24,25,-198,-2147483648,2,24,25,-198,-2147483648,2,24,25,-196,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tileset_main","path":"tilesets/tileset_main/tileset_main.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

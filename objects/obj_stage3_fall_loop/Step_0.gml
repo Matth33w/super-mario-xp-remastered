@@ -23,4 +23,6 @@ if(instance_exists(obj_player)) {
 		var instance = instance_create_layer(168, 8248, "Objects", obj_weapon);
 		instance.weapon_type = "cross";
 	}
+	
+	fallLoop = instance_number(obj_lakitu) > 0;
 }

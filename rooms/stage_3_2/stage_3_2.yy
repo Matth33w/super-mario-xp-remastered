@@ -37,6 +37,7 @@
     {"name":"inst_14554158","path":"rooms/stage_3_2/stage_3_2.yy",},
     {"name":"inst_2CF6D1E2","path":"rooms/stage_3_2/stage_3_2.yy",},
     {"name":"inst_58B09AC","path":"rooms/stage_3_2/stage_3_2.yy",},
+    {"name":"inst_4582A992","path":"rooms/stage_3_2/stage_3_2.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -81,6 +82,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_14554158","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_destroyable_platform","path":"objects/obj_destroyable_platform/obj_destroyable_platform.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":208.0,"y":8912.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2CF6D1E2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_destroyable_platform","path":"objects/obj_destroyable_platform/obj_destroyable_platform.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":8912.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_58B09AC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_platform_breaker","path":"objects/obj_platform_breaker/obj_platform_breaker.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":272.0,"y":8912.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4582A992","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"stg_3_lakitu","path":"objects/stg_3_lakitu/stg_3_lakitu.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":-16.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_1","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":600,"SerialiseWidth":20,"TileCompressedData":[
 -45,32,-12,0,-8,32,-12,0,-7,32,-13,0,-3,32,-17,0,-3,32,-17,0,

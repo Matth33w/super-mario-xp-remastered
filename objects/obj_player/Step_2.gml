@@ -7,7 +7,7 @@ if(platformInstance && currentY >= 0 && y < platformInstance.y + 2 && platformIn
 	platformHorizontalEffector = platformInstance.platformSpeed * platformInstance.plat_direction;
 } else if(platformInstance && currentY >= 0 && y < platformInstance.y + 2 && platformInstance.orientation == "vertical") {
 	if(platformInstance.plat_direction == -1) {
-		if(platformInstance && currentY >= 0 && obj_player.y < y + 2) {
+		if(platformInstance && currentY >= 0 && obj_player.y < y + 2 && !place_meeting(x, y - 1, obj_ground_group)) {
 			currentY = 0;
 			y = platformInstance.y;
 			steppingOnPlatform = true;

@@ -236,9 +236,12 @@ if(onGround && !global.jump && global.vertical > 0 && !isMoving && !hitState) {
 	image_yscale = 1;
 }
 
-if(place_meeting(x, y, obj_ground_group) && !warpState) 
-	while(place_meeting(x, y, obj_ground_group))
-		x += 1 * lastHorizontalDirection;
+if(place_meeting(x, y, obj_ground_group) && !warpState) {
+	if(!place_meeting(x, y + 1, obj_moving_platform)) {
+		while(place_meeting(x, y, obj_ground_group))
+			x += 1 * lastHorizontalDirection;
+	}
+}
 
 if(!warpState)
 	obj_player_sprite.depth = 100;

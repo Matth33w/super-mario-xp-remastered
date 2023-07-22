@@ -5,5 +5,5 @@ if(demoTimeout > 1) {
 }
 
 if(demoTimeout > 3) {
-	room_goto(stage_4_4);
+	room_goto(stage_3_2);
 }

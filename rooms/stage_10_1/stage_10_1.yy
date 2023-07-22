@@ -122,6 +122,8 @@
     {"name":"inst_49F532C3","path":"rooms/stage_10_1/stage_10_1.yy",},
     {"name":"inst_722B21DB","path":"rooms/stage_10_1/stage_10_1.yy",},
     {"name":"inst_58DC4C02","path":"rooms/stage_10_1/stage_10_1.yy",},
+    {"name":"inst_1F3B9C83","path":"rooms/stage_10_1/stage_10_1.yy",},
+    {"name":"inst_4F49E961","path":"rooms/stage_10_1/stage_10_1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -298,6 +300,8 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_piranha_plant","path":"objects/obj_piranha_plant/obj_piranha_plant.yy",},"propertyId":{"name":"piranha_type","path":"objects/obj_piranha_plant/obj_piranha_plant.yy",},"value":"red",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2848.0,"y":208.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_58DC4C02","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},"properties":[],"rotation":0.0,"scaleX":20.0,"scaleY":1.0,"x":2896.0,"y":96.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1F3B9C83","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1344.0,"y":128.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4F49E961","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":3040.0,"y":96.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":15,"SerialiseWidth":202,"TileCompressedData":[
 -2,32,-3,-2147483648,-31,0,-2,32,-22,0,-2,32,-28,0,-54,32,-58,0,-2,32,-3,-2147483648,-31,0,-2,32,-22,0,-2,32,-28,0,-4,32,-46,0,-4,32,-58,0,-2,32,-3,-2147483648,-31,0,-2,32,-22,0,-2,32,-28,0,-4,32,-46,0,-4,32,-58,0,-2,32,-3,-2147483648,-31,0,-2,32,-22,0,-2,32,-28,0,-4,32,-46,0,-4,32,-58,0,-2,32,-3,-2147483648,-31,0,-2,32,-22,0,-2,32,-28,0,-4,32,-46,0,-4,32,-58,0,-2,32,-3,-2147483648,-31,0,-2,32,-8,0,-4,32,-10,0,-2,32,-28,0,-4,32,-46,0,-4,32,-58,0,-2,32,-3,-2147483648,-25,0,1,6,-5,0,-2,32,-8,0,-4,32,-10,0,-2,32,-9,0,-2,32,-17,0,-4,32,-46,0,-4,32,-37,0,-20,32,3,0,32,32,-3,-2147483648,-12,0,2,8,9,-11,0,1,22,-15,0,-4,32,-10,0,-2,32,-9,0,-2,32,-17,0,-4,32,-46,0,-4,

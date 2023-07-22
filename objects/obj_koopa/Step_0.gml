@@ -238,12 +238,12 @@ if(!defeated) {
 	if(place_meeting(x + round(currentX), y, obj_ground_group)) {
 		entityDirection = -entityDirection;
 	} else {
-		instance = instance_place(x + round(currentX), y, obj_enemy_group);
-		if(instance != noone && !instance.dead && !instance.defeated) {
+		instance = instance_place(x + (currentX + 3 * entityDirection), y, obj_enemy_group);
+		if(instance != noone && !shellMoving && !instance.dead && !instance.defeated) {
 			entityDirection = -entityDirection;
 		
-			while(!instance.onCamera && place_meeting(x, y, obj_enemy_group)){
-				instance.x -= 1;
+			while(place_meeting(x, y, obj_enemy_group) && !dead){
+				x += random_range(-16, 16);
 			}
 		}
 	}

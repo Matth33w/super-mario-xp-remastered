@@ -9,3 +9,5 @@ defeated = false;
 deadTimeout = 0;
 
 defeatedYSpeed = -4.5;
+
+onCamera = false;

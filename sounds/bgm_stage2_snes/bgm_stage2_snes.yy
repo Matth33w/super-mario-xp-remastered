@@ -10,7 +10,7 @@
   "bitRate": 320,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 102.13878,
+  "duration": 25.443266,
   "parent": {
     "name": "SNES",
     "path": "folders/Sounds/Musics/SNES.yy",

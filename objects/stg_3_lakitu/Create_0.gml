@@ -1,0 +1,1 @@
+lakituSpawned = false;
